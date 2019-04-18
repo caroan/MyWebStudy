@@ -3,61 +3,32 @@
   <head>
     <title>Web1 - html</title>
     <meta charset="utf-8">
-    <style media="screen">
-      a {<! 태그 선택자로 우선 순위가 가장 낮음
-        color: black;
-        text-decoration: none;
-      }
-
-      .saw{<!클래스 선택자로 태그 선택자보다 우선 순위가 높음
-        color:gray;
-      }
-
-      #active{<!아이디 선택자로 가장 우선 순위가 높음
-        color:red;
-      }
-
-      h1{
-        border-bottom: 1px gray solid;
-        font-size: 60px;
-        text-align: center;
-        margin: 0;
-      }
-
-      ol{
-        border-right: 1px solid gray;
-        width:100px;
-        margin:0;
-        padding: 20px
-      }
-      body{
-        margin: 0px;
-      }
-    </style>
+     <link rel="stylesheet" href="Style.css">
   </head>
 
   <body>
-
     <h1><a href="index.html"> WEB </font></a> </h1>
+    
+    <div id="grid">
+      <ol>
+        <li><a href="1.html" class="saw">HTML</font></a></li>
+        <li><a href="2.html" class="saw" id="active" style="text-decoration:underline">CSS</font></a></li>
+        <li><a href="3.html">JavaScript</font></a></li>
+      </ol>
 
-    <ol>
-      <li><a href="1.html" class="saw">HTML</font></a></li>
-      <li><a href="2.html" class="saw" id="active" style="text-decoration:underline">CSS</font></a></li>
-      <li><a href="3.html">JavaScript</font></a></li>
-    </ol>
+  <!--
+      <h1><a href="index.html"> <font color="red">WEB </font></a> </h1>
 
-<!--
-    <h1><a href="index.html"> <font color="red">WEB </font></a> </h1>
-
-    <ol>
-      <li><a href="1.html"><font color="red">HTML</font></a></li>
-      <li><a href="2.html"><font color="red">CSS</font></a></li>
-      <li><a href="3.html"><font color="red">JavaScript</font></a></li>
-    </ol>
--->
-
-    <h2>CSS란 무엇인가?</h2>
-    <p>css is cascading style sheet</p>
-
+      <ol>
+        <li><a href="1.html"><font color="red">HTML</font></a></li>
+        <li><a href="2.html"><font color="red">CSS</font></a></li>
+        <li><a href="3.html"><font color="red">JavaScript</font></a></li>
+      </ol>
+  -->
+      <div id="article">
+        <h2>CSS란 무엇인가?</h2>
+        <p>css is cascading style sheet</p>
+      </div>
+    </div>
   </body>
 </html>
