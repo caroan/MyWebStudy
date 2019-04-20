@@ -1,0 +1,49 @@
+a {/* 태그 선택자로 우선 순위가 가장 낮음*/
+  color: black;
+  text-decoration: none;
+}
+
+.saw{/*클래스 선택자로 태그 선택자보다 우선 순위가 높음*/
+  color:gray;
+}
+
+#active{/*아이디 선택자로 가장 우선 순위가 높음*/
+  color:red;
+}
+
+h1{
+  border-bottom: 1px gray solid;
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
+}
+#grid {
+   display: grid;
+  grid-template-columns: 150px 1fr;
+ }
+ol{
+  border-right: 1px solid gray;
+  width:100px;
+  margin:0;
+  padding: 20px
+}
+body{
+  margin: 0px;
+}
+#grid ol{
+  padding-left: 33px;
+}
+#grid #article{
+  padding-left: 20px;
+}
+@media(max-width:800px){
+  #grid {
+    display: block;
+  }
+  ol{
+    border-right: none;
+  }
+  h1{
+    border-bottom: none;
+  }
+}
