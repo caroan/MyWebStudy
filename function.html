@@ -22,12 +22,20 @@
     </ul>
     <h2>parameter & argument</h2>
     <script>
-      function PlusOther(){
-
+      function plusOther(left, right){
+        document.write(left + right + '<br>');
       }
-      document.write(1+1);
+      plusOther(5, 3);
     </script>
 
+    <h2>return</h2>
+    <script>
+      function summary(left, right){
+        return left+right;
+      }
+      document.write(summary(2,3) + '<br>');
+      document.write('<div style="font-size:3rem">'+summary(2,3)+'</div>');
+    </script>
     
   </body>
 </html>
