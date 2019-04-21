@@ -2,12 +2,13 @@
 //분할된 파일은 캐쉬 메모리에 들어가기 때문에 상당히 효율적이다.
 var Links ={
     setColor:function(myColor){
-        var alist = document.querySelectorAll('a');
-        var i =0;
-        while(i<alist.length){
-            alist[i].style.color=myColor;
-            i++;
-        }
+        // var alist = document.querySelectorAll('a');
+        // var i =0;
+        // while(i<alist.length){
+        //     alist[i].style.color=myColor;
+        //     i++;
+        // }//일반 코드로 구현
+        $('a').css('color', myColor);//JQuery로 구현
     }
 }
 var Body = {
