@@ -3,6 +3,35 @@
   <head>
     <title>Web1 - html</title>
     <meta charset="utf-8">
+
+    <script>
+
+      function nightDayhandler(self){
+        if (self.value === 'night'){
+          document.querySelector('body').style.backgroundColor='black'
+          document.querySelector('body').style.color='white'
+          self.value = 'day'
+          var alist = document.querySelectorAll('a');
+          var i =0;
+          while(i<alist.length){
+          	alist[i].style.color='powderblue';
+          	i++;
+          }
+        }
+        else{
+          document.querySelector('body').style.backgroundColor='white'
+          document.querySelector('body').style.color='black'
+          self.value = 'night'
+          var alist = document.querySelectorAll('a');
+          var i =0;
+          while(i<alist.length){
+            alist[i].style.color='blue';
+            i++;
+          }
+        }
+      }
+
+    </script>
   </head>
 
   <body>
@@ -16,6 +45,34 @@
     document.querySelector('body').style.backgroundColor='white'
     document.querySelector('body').style.color='black'
     ">
+    <input id="night_day" type="button" name="" value="night" onclick="
+    if (document.querySelector('#night_day').value === 'night'){
+      document.querySelector('body').style.backgroundColor='black'
+      document.querySelector('body').style.color='white'
+      document.querySelector('#night_day').value = 'day'
+      var alist = document.querySelectorAll('a');
+      var i =0;
+      while(i<alist.length){
+      	alist[i].style.color='powderblue';
+      	i++;
+      }
+    }
+    else{
+      document.querySelector('body').style.backgroundColor='white'
+      document.querySelector('body').style.color='black'
+      document.querySelector('#night_day').value = 'night'
+      var alist = document.querySelectorAll('a');
+      var i =0;
+      while(i<alist.length){
+        alist[i].style.color='blue';
+        i++;
+      }
+    }
+    ">
+    <!-- night_day의 함수 사용 버전-->
+    <input id="function_night_day" type="button" name="" value="night" onclick="
+      nightDayhandler(this);
+    ">
     <ol>
       <li><a href="1.html">HTML</a></li>
       <li><a href="2.html">CSS</a></li>
@@ -24,5 +81,21 @@
 
     <h2>JavaScript란 무엇인가?</h2>
     <p>JavaScript is language</p>
+
+    <!--위 night_day는 아래와 같이 수정할 수 있다.-->
+    <input id="revise_night_day" type="button" name="" value="night" onclick="
+    var target = document.querySelector('body');
+    if (this.value === 'night'){
+      target.style.backgroundColor='black'
+      target.style.color='white'
+      this.value = 'day'
+    }
+    else{
+      target.style.backgroundColor='white'
+      target.style.color='black'
+      this.value = 'night'
+    }
+    ">
+
   </body>
 </html>
