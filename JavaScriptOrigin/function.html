@@ -6,18 +6,20 @@
   </head>
   <body>
     <script type="text/javascript">
-      /*function func01(){
+      
+      function func01(){
         document.write("일반적인 함수 선언"+"<br>");
       }
       var func02 = function(){
-        document.write("다른 식의 함수 선언"+"<br>");
-      }*/
-      (function (x) {
-        document.write(x*x);
-      })(2);
+        document.write("다른 형태의 함수 선언"+"<br>");
+      }
+      // <- 이자리에 즉시실행 익명 함수를 넣으면 문제가 생김. 왜?
+      func01();
+      func02();
 
-//      func01();
-//      func02();
+      (function() {
+        document.write("즉시 실행 함수이자 익명 함수");
+      })();
     </script>
   </body>
 </html>
