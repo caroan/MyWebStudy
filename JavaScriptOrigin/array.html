@@ -10,8 +10,9 @@
             }
             function printArray(mArr){
                 for(var i=0;i<mArr.length;i++){
-                    document.write(mArr[i].toUpperCase()+"<br/>");
+                    document.write(mArr[i].toUpperCase() +' ');
                 }
+                document.write('<br/>');
             }
             var member2 = get_member();
             printArray(member);
@@ -22,8 +23,17 @@
             li = li.concat(['f', 'g']);
             li.unshift('z');
             li.splice(1, 0, 'k');
-            
+
             document.write(li.splice(1,1,'x', 'y')+'<br/>');
+            printArray(li);
+
+            document.write('<br/>');
+            li.shift();
+            li.pop();
+            printArray(li);
+
+            document.write('<br/>');
+            li.sort();
             printArray(li);
         </script>
     </body>

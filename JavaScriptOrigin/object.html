@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var grades = {'myung':5, 'sun':3, 'an':2};
+      var grades2 = {};
+      grades2 ['myung'] = 5;
+      grades2 ['sun'] = 3;
+      grades2 ['an'] = 2;
+      var grades3 = new Object();
+      grades3 ['myung'] = 5;
+      grades3 ['sun'] = 3;
+      grades3 ['an'] = 2;
+
+      document.write(grades['myung']);
+      document.write('<br/>');
+      document.write(grades2.sun);
+      document.write('<br/>');
+      document.write(grades3['a'+'n']);
+      document.write('<br/>');
+// Obejct에는 배열처럼 순서가 없고 단지 키와 밸류만 있다.
+
+      for(key in grades){
+        document.write(key+":"+grades[key] +' ');
+      }
+      document.write('<br/>');
+      var grades4 ={
+        'list' : {'m' : 1, 's' : 2, 'a':3},
+        'show' : function(){
+          document.write('showFunction<br/>');
+        },
+        'showThis' : function(){
+          document.write(this.list.m+'<br/>');
+        }
+      }
+      document.write(grades4['list']['m']);
+      document.write('<br/>');
+      grades4['show']();
+      document.write('<br/>');
+      grades4['showThis']();
+
+    </script>
+    <ul>
+      <script>
+        for(key in grades){
+          document.write('<li>'+key+":"+grades[key] +' '+'</li>');
+        }
+      </script>
+    </ul>
+  </body>
+</html>
