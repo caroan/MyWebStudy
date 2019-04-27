@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            var pattern1 = /a/;
+            var pattern1_1 = /a./; //여기서 .은 뒤에 오는 문자 1개를 말한다.
+            var pattern2 = new RegExp('a'); //RegExp는 정규 표현식 객체를 말하며 기존에 약속된 것임.
+
+            console.log(pattern1.exec('abcd'));
+            console.log(pattern1_1.exec('abcd'));
+            console.log(pattern1_1.exec('a'));
+            console.log(pattern2.exec('bcd'));
+
+            console.log(pattern1.test('abcd'));
+            console.log(pattern1_1.test('abcd'));
+            console.log(pattern1_1.test('a'));
+            console.log(pattern2.test('bcd'));
+
+            console.log('문자열에서 정규 표현식 사용');
+
+            console.log('aabbcc'.match(pattern1));
+            console.log('bbcc'.match(pattern1));
+            console.log('aabbcc'.replace(pattern1, 'A'));
+
+            console.log('정규 표현식에서의 옵션');
+
+            var xi = /a/;
+            var oi = /a/i; // 대소문자 구분 안함.
+            var xg = /a/;
+            var og = /a/g; // 검색한 모든 결과를 리턴
+            var ig = /a/ig; // 위 두개를 같이 사용 가능.
+
+            console.log('Abcd'.match(xi));
+            console.log('Abcd'.match(oi));
+
+            console.log('abcdaaca'.match(xg));
+            console.log('abcdaaca'.match(og));
+
+            console.log('abcdAacA'.match(ig));
+
+            console.log('캡처와 치환');
+
+            var pat = /(\w+)\s(\w+)/; //() <- 그룹을 의미, + <- 1개 이상의 문자를 의미, \w <- 문자 \s <- 스페이스
+            var str = 'coding everybody';
+            var result = str.replace(pat, "$2, $1"); //$ <- 그룹을 의미 $1은 첫번째 ()을 뜻함.
+            console.log(result);
+
+            var urlpattern = /\b(?:http?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+            var content = '구글 http://google.com 네이버 : http://naver.com 입니다.'
+            var result02 = content.replace(urlpattern, function(url){
+                return '<a herf="' +url+'">'+url+'</a>';
+            });
+            //replace에서 매 똑같은 단어를 찾을 때마다 그에 맞는 url을 함수에 넣어주고, 이를 문자열로 만든다.
+            //url은 고정된 값인것 같다.
+
+            console.log(result02);
+        </script>
+    </body>
+</html>
