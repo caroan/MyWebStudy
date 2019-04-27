@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <!-- 모튤화 관련 내용 다룸 -->
+        <meta charset="utf-8">
+        <script src="moduleSub.js">
+            //앞의 src를 통해 여기 스크립트안에 집어 넣는 효과
+            /*
+                모듈 vs 라이브러리
+                모듈 : 프로그램을 구성하는 작은 부품으로써 로직
+                라이브러리 : 로직 재사용을 위한 코드의 집합.
+                모듈의 예 : Node.js
+                라이브러리 예 : jquery
+            */
+        </script>
+    </head>
+    <body>
+        <script>
+            console.log(welcome());
+        </script>
+        <!--jquery 데모-->
+        <ul id="list">
+            <li>empty</li>
+            <li>empty</li>
+        </ul>
+        <input type="button" value="execute" id="executeBtn">
+        <script>
+            //#은 아이디를 가르킨다.
+            $('#executeBtn').click(function(){
+                    $('#list li').text('coding everybody');
+                }
+            );
+            
+        </script>
+    </body>
+</html>
