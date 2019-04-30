@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            //var을 붙이는 이유 : var 을 붙이면 새로 변수를 선언한다는 뜻이 된다.
+            var vscope = "global";
+            function fscope(){
+                var vscope = "local";
+                console.log(vscope);
+            }
+            fscope();
+            console.log(vscope);
+        </script>
+    </body>
+</html>
