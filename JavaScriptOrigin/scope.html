@@ -12,6 +12,96 @@
             }
             fscope();
             console.log(vscope);
+
+            // var를 안쓰면 아래와 같이 범위가 서로 엇갈려서 문제가 생긴다.
+            function wrongVariable(){
+                wrongVar = 5;
+            }
+
+            for(var wrongVar =0; wrongVar < 5; wrongVar ++){
+                wrongVariable();
+                document.write(wrongVar);
+            }
+
+            function rightVariable(){
+                var rightVar = 5;
+            }
+
+            for(var rightVar =0; rightVar < 5; rightVar ++){
+                rightVariable();
+                document.write(rightVar);
+            }
+
+            document.write('<br>');
+
+            var MyApp = {};
+
+            MyApp.calculater ={
+                'left' : null,
+                'right' : null
+            }
+
+            MyApp.coordinate ={
+                'left' : null,
+                'right' : null
+            }
+
+            MyApp.calculater.left = 10;
+            MyApp.calculater.right = 20;
+
+            function sum(){
+                return MyApp.calculater.left + MyApp.calculater.right;
+            }
+
+            document.write(sum() +'<br>');
+
+            // 아래는 익명 함수로 전역 변수를 안쓰는 것이다.
+            (function (){
+                var MyApp = {};
+
+                MyApp.calculater ={
+                    'left' : null,
+                    'right' : null
+                }
+
+                MyApp.coordinate ={
+                    'left' : null,
+                    'right' : null
+                }
+
+                MyApp.calculater.left = 11;
+                MyApp.calculater.right = 22;
+
+                function sum(){
+                    return MyApp.calculater.left + MyApp.calculater.right;
+                }
+                document.write(sum());
+            }())
+
+            // 자바 스크립트에서는 함수 안에서 선언된 지역 변수만이
+            // 그 함수안의 지역 변수가 되지 그외 중괄호 안에
+            // 지역 변수는 그 지역안에서만 쓸수 있는 변수가 아니다.
+            for (var mi=0; mi<5; mi++){
+                var name = 'an';
+            }
+            document.write(name);
+
+            // 선언된 변수는 자기 지역 이후 전역 변수를 찾는다.
+            // 스택 머신으로 접근하지 않는다.
+            var i2 = 5;
+
+            function a(){
+                var i2 = 10;
+                b();
+            }
+
+            function b(){
+                //i2는 b 함수 지역에 자기 값이 선언된 것이 없으니까 바로 전역 변수를 찾는다.
+                // 즉 사용될 때가 아닌 정의 될 때 지역 변수가 사용된다. (정적 유효 범위를 갖는다.)
+                document.write(i2);
+            }
+
+            a();
         </script>
     </body>
 </html>
