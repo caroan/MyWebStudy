@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            //특정 함수 안에서만 사용하는 함수를 함수 안에 선언할 수 있다.
+            function outter(){ //<- 외부 함수
+                var out_text = "out_text";
+                function inner(){ // <- 내부 함수
+                    var inner_text = "in_text"; //<- 내부 함수의 지역 변수.
+                    console.log(out_text); // <- 내부 함수에서 외부 함수의 지역 변수를 사용하는 것 가능 : 클로져라고 함.
+                    console.log(inner_text);
+                }
+                inner();
+            }
+
+            outter();
+
+            //클로저 기능 : 이미 죽은 외부 함수의 변수를 그대로 쓸 수 있다.
+            function outter2(){
+                var title = 'out';
+                return function(){
+                    console.log(title);
+                }
+            }
+
+            inner2 = outter2();
+            inner2(); //<- out 이 출력됨. 이미 생이 마감된 outter2의 변수가 출력된다는 신가한 사실!
+
+            // 위의 이미 죽은 함수의 변수를 사용하는 예시 - 객체의 프라이빗 변수로 사용.
+            // 함수가 리턴하는 객체 안에 내부 함수들이 있는 형태.
+            function factory_movie(title){
+                //title을 프라이빗 변수로 사용.
+                return {
+                    get_title : function (){
+                        return title;
+                    },
+                    set_title : function (_title) {
+                        if(typeof _title === typeof 'String'){
+                            title = _title;
+                        }
+                        else{
+                            alert('제목은 문자열 이어야 한다.');
+                        }
+                    }
+                }
+            }
+
+            ghost = factory_movie('ghost in the shell'); // 봔환하는 객체를 적용 받음.
+            matrix = factory_movie('matrix');
+            ghost.set_title("공각 기동대");
+
+            console.log(ghost.get_title());
+            console.log(matrix.get_title());
+
+            // 클로저 자주 하는 실수
+            var arr = [];
+            for (var i =0; i<5; i++){
+                arr[i] = function(){
+                    return i;
+                }
+            }
+            for (var index in arr){
+                console.log(arr[index]()); //1~4까지 되는 줄 알았지만 실제로는 5만 출력된다. 왜? i가 함수 내 지역 변수가 아니므로.
+            }
+
+            //위 함수를 맞게 고치면 아래와 같다. (참고로 매개 변수는 지역 변수와 동일한 효과를 지닌다.)
+
+            var arr2 = [];
+            for (var i2 =0; i2<5; i2++){
+                arr2[i2] = function(idx){
+                    return function(){
+                        return idx;
+                    }
+                }(i2);
+            }
+            for (var index2 in arr2){
+                console.log(arr2[index2]());
+            }
+        </script>
+    </body>
+</html>
