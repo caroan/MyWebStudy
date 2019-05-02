@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function sum(){
+        var i, _sum =0;
+        //arguments는 미리 정해져 있는 변수 객체
+        for(i=0; i<arguments.length; i++){
+          document.write(i+" : "+arguments[i]+'<br/>');
+          _sum += arguments[i];
+        }
+        return _sum;
+      }
+      // 매개변수가 안 맞아도 문제 없음
+      document.write('result : ' + sum(1,2,3,4));
+    </script>
+    <script type="text/javascript">
+
+      // 매개변수에 따른 오버라이딩이 안되기 때문에 함수.length를 통해 실제 들어온 아귀먼트 개수와 비교해서 유저에게 알려줘야 하는 번거로움이 있다.
+      function zero(){
+        console.log(
+        'zero.length', zero.length,
+        'arguments', arguments.length
+        );
+      }
+
+      function one(arg1){
+        console.log(
+          'one.length', one.length,
+          'arguments', arguments.length
+        );
+      }
+
+      function two(arg1, arg2){
+        console.log(
+          'two.length', two.length,
+          'arguments', arguments.length
+        );
+      }
+
+      zero();
+      zero(1, 2);
+
+      one();
+      one(1);
+
+      two();
+      two(1,2);
+    </script>
+
+  </body>
+</html>
