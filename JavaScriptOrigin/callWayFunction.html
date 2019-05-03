@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <script>
+
+            //함수는 함수 객체이기도하다.
+            function sum(arg1, arg2){
+                return arg1+arg2;
+            }
+
+            console.log(sum(1,2))
+            //함수 객체의 내장 메소드 apply를 불러서 사용.
+            console.log(sum.apply(null,[1,2]));
+
+            //apply는 아래와 같이 쓰는게 맞다.
+            o1 = {val1:2, val2:3, val3:4};
+            o2 = {v1:5, v2:6, v3:7};
+
+            function sum2(){
+                var _sum = 0;
+                for (name in this){
+                    _sum += this[name];
+                }
+                return _sum;
+            }
+            console.log(sum2.apply(o1));
+            console.log(sum2.apply(o2));
+
+            //위 apply룰 아래처럼 쓸 수 있다.
+            function sum3(){
+                var _sum = 0;
+                for (name in this){
+                    if(typeof this[name] !== 'function'){
+                        _sum += this[name];
+                    }
+                }
+                return _sum;
+            }
+
+            o3 = {val1:1, val2:2, val3:3, sum:sum3};
+            o4 = {v1:10, v2:20, v3:30, sum:sum3};
+            console.log(o3.sum());
+            console.log(o4.sum());
+        </script>
+    </body>
+</html>
