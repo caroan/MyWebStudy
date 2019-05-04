@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+
+            function make() {}
+            var obj1 = new make();
+            function func(){
+                if(window === this){
+                    document.write("window===this <br/>")
+                }
+                else if(obj1 === this) {
+                    document.write('obj1 === this <br/>');
+                }
+            }
+            func();
+            func.apply(obj1);
+
+            // 생성자는 아래와 같이 일반 함수로 쓰일 수 있으며 이때 this는 window(전역 객체)를 가르킨다.
+            var funcThis = null;
+
+            function makeOther(){
+                funcThis = this;
+                //이 시점에서 obj3은 undefined상태로 여기에 obj3을 비교할 수 없다.
+            }
+            var obj2 = makeOther();
+            if(funcThis === window){
+                document.write('window<br/>');
+            }
+
+            var obj3 = new makeOther();
+            if(funcThis === obj3){
+                document.write('obj3<br/>');
+            }
+
+            //함수는 객체다.
+            var sum = new Function('x','y','z=x+y;return z;');//맨 마지막 이전 것들은 함수의 인자로, 맨마지막에 넣는 것은 해당 함수의 본문으로 들어간다.
+            console.log(sum(1,2));
+
+            //apply & call, this
+
+            var obj4 ={};
+            var obj5 ={};
+
+            function myFunc(){
+                switch(this){
+                    case obj4:
+                        document.write('obj4<br/>');
+                        break;
+                    case obj5:
+                        document.write('obj5<br/>');
+                        break;
+                    case window:
+                        document.write('window<br/>');
+                        break;
+                }
+            }
+            myFunc();
+            myFunc.apply(obj4);
+            myFunc.apply(obj5);
+        </script>
+    </body>
+</html>

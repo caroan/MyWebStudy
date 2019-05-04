@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset=UTF-8>
+    </head>
+    <body>
+        <script>
+            function Ultra(){}
+            Ultra.prototype.ultraProp = true;
+            Ultra.prototype.ultraProp2 = 0;
+            function Super(){}
+            Super.prototype = new Ultra();
+            function Sub(){}
+            Sub.prototype = new Super();
+
+            var obj = new Sub();
+            console.log(obj.ultraProp);
+
+            function Sub2(){}
+            var sObj = new Super();
+            sObj.ultraProp2 = 3;
+            
+            //객체 프로토타입에 실 객체를 넣을 수 있다.
+            Sub2.prototype = sObj;
+
+            var obj2 = new Sub2();
+            console.log(obj2.ultraProp2);
+
+            //생성자는 기본적으로 함수. 다만 앞에 new를 붙여주니 생성자로 인식할 뿐
+            //new를 쓰면 각 객체의 프로토타입을 불러와서 넣어준다.
+            //때문에 prototype에 속성을 부여하면 new를 했을 때 해당 객체의 속성이 부여된 프로토타입을 불러와서 처음 선언한것처럼 작업이된다.
+
+            //sub.prototype = super.prototype <- 이렇게 쓰지 말자. 부모객체와 자식 객체에 동시에 영향을 주게 되므로 절대 하지 말자.
+        </script>
+    </body>
+</html>
