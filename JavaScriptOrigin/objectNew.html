@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            var person ={};
+            person.name = 'an';
+            person.introduce = function(){
+                return 'my name is '+this.name + '<br/>';
+            }
+            document.writeln(person.introduce());
+
+            var human ={
+                'name' : 'AN',
+                'introduce' : function(){
+                    return 'my name is ' + this.name + '<br/>';
+                }
+            }
+
+            document.writeln(human.introduce());
+
+            //생성자 : 자바스크립트에선 생성자가 클래스에 속하지 않고 단순한 함수이다.
+            //자바 스크립트에서는 클래스라는 존재가 없다.
+            function mankind(){}
+            var man = new mankind();
+            man.name = 'An'
+            man.introduce = function (){
+                return 'my name is '+ this.name + '<br/>';
+            }
+            document.writeln(man.introduce());
+            var woman = new mankind();
+            woman.name = 'lee';
+            woman.introduce = function(){
+                return 'my name is ' + this.name + '<br/>';
+            }
+            document.writeln(woman.introduce());
+
+            function people(name){
+                this.name = name;
+                this.introduce = function(){
+                    return 'my name is ' +this.name + '<br/>';
+                }
+            }
+
+            var karl = new people('karl');
+            var nom = new people('nom');
+
+            document.writeln(karl.introduce());
+            document.writeln(nom.introduce());
+        </script>
+    </body>
+</html>

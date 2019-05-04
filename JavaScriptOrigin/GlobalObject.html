@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <script>
+            function func(){
+                console.log('hello')
+            }
+            func();
+            //window - 전역 객체(생략해도 됨), func - 속성
+            //func()와 window.func()는 사실상 같다.
+            window.func();
+
+            var o = {
+                'func' : function(){
+                    console.log('in');
+                }
+            }
+
+            o.func();
+            window.o.func();
+            
+            //자바스크립트의 모든 객체와 함수는 전역 객체의 프로퍼티이다.
+
+        </script>
+    </body>
+</html>
