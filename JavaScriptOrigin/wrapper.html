@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            //문자열은 원시 데이터 타입이지만 원시 데이터 타입이 객체인것처럼 동작해야 아래 작업이 된다.
+            var str = 'coding';
+            //위에서 str = new String('coding'); 으로 작업이 된다.
+            //아래에서 잠시 객체처럼 사용이 되지만
+            str.prop = 'dfd';
+            console.log(str.length);
+            console.log(str.charAt(0));
+
+            //하지만 랩퍼 객체이기 때문에 실제 값이 나오지 않는다.
+            console.log(str.prop);
+
+            //숫자 : Number, 문자열 : String, 불리언 : Boolean, null,undefined : 랩퍼 객체 없음(이걸 객체처럼 사용하려면 에러 발생한다.)
+        </script>
+    </body>
+</html>

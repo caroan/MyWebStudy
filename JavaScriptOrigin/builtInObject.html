@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            var arr = new Array('seoul', 'tokyo', 'new york', 'sanghai', 'london');
+
+            function getRandomValueFromArray(arr){
+                var index = Math.floor(arr.length * Math.random());
+                return arr[index];
+            }
+            console.log(getRandomValueFromArray(arr));
+
+            //빌트인 객체에 메소드 추가함.
+            Array.prototype.random = function(){
+                var index = Math.floor(this.length * Math.random());
+                return this[index];
+            }
+            console.log(arr.random());
+
+            //Object.keys()<- prototype이 안 붙음 -> 생성자 함수. 앞에 Object를 써야함. 상속 안됨.
+            var list = ['a', 'b', 'c'];
+            console.log('object.keys(list)', Object.keys(list));
+
+            //Object.prototype.toString()<- prototype이 붙음 -> 만든 객체의 메소드로써 사용. 상속이 됨.
+            var o = new Object();
+            console.log('o.tostring()', o.toString());
+            var a = new Array(10,20,30);
+            console.log('a.toString()', a.toString());
+
+            //Object에 사용할 함수 추가.
+            Object.prototype.contain = function(name){
+                for(var context in this){
+                    if(this[context] === name){
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var o2 = {'name':'an', 'city':'seoul'}
+            var a2 = ['an', 'lee'];
+
+            console.log(o2.contain('seoul'));
+            console.log(a2.contain('lee'));
+            console.log(o2.contain('seoul2'));
+            console.log(a2.contain('lee2'));
+
+            //위에서 내가 정의한 오브젝트의 함수를 아래에서 표시된다. 이건 변경 불가.
+            for(var n in o2){
+                if(o2.hasOwnProperty(n)){ //<- 해당 객체가 실제로 가지고 있는 메소드 인지 물어본다. (없으면 false 반환)
+                //그냥으로 하면 오브젝트에 임의로 추가한 함수가 표시된다.
+                    document.writeln(n);
+                }
+            }
+        </script>
+    </body>
+</html>
