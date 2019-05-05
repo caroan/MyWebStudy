@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+
+            //deep copy : a <-!->b
+            //원시 데이터 타입
+            var a = 1;
+            var b = a;
+            b = 2;
+            console.log(a);
+
+            //reference : a.id <-->b.id
+            //원시 데이터 타입이 아님.
+            var a2 = {'id':1}
+            var b2 = a2;
+            b2.id = 2;
+            console.log(a2.id);
+
+            //deep copy in function
+            var a3 = 1;
+            function func(b3){
+                b3=2;
+            }
+            func(a3);
+            console.log(a3);
+
+            //deep copy in function
+            var a4 = {'id':1};
+            function func2(b4){
+                b4={'id':2};//<- a가 아닌 다른 객체를 가르키기 때문에 a는 나가리 됨.
+            }
+
+            func2(a4);
+            console.log(a4.id);
+
+            //reference in function
+            var a5 = {'id':1};
+            function func3(b5){
+                b5.id = 2;//<- a5를 가르키면서 그 안의 변수를 다른 것으로 함.
+            }
+            func3(a5);
+            console.log(a5.id);
+        </script>
+    </body>
+</html>
