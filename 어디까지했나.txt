@@ -1,0 +1,21 @@
+Web1 - html&internet
+
+--- 학습 완료 ---
+
+Javascript & Web2 Javascript
+
+AWS - Educate
+
+지옥에서 온 Git
+
+ Web2 CSS
+
+
+--- 학습 중 ---
+
+Javascript 객체 지향 프로그래밍
+
+--- 학습 할 것 ---
+
+Node.js
+jQuery
