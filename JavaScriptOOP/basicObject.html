@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            var members = {
+                manager: 'ma',
+                developer: 'de',
+                designer: 'des',
+                boss: 'an'
+            }
+
+            members.developer = 'dv';
+            //delete로 객체의 프로퍼티를 지울 수 있음.
+            delete members.manager;
+
+            console.log('변경됨', members.developer);
+            console.log('삭제됨', members.manager);
+
+            //log를 그룹으로 묶어준다.
+            console.group('object loop');
+            for (var name in members){
+                console.log(name, members[name])
+            }
+            console.groupEnd('object loop');
+
+            function Obj(name, score, result){
+                this.name = name;
+                this.score = score;
+                this.result = result;
+
+                this.sum1 = function(){
+                    return this.score + this.result;
+                }
+            }
+            Obj.prototype.sum2 = function(){
+                return this.score + this.result;
+            }
+
+            var o1 = new Obj('a', 1, 2);
+            var o2 = new Obj('b', 3, 4);
+
+            console.log(o1.sum1());
+            console.log(o2.sum2());
+        </script>
+    </body>
+</html>
