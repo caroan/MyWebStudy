@@ -43,6 +43,149 @@
 
             console.log(o1.sum1());
             console.log(o2.sum2());
+
+            //ecma6 이후에서 클래스를 지원함.
+            //다만 내부 내용은 function과 동일함.
+            class People{
+                // 생성자가 있음.
+                constructor(name, first, second){
+                    this.name = name;
+                    this.first = first;
+                    this.second = second;
+                    console.log('constructor active');
+
+                }
+                sum1(){
+                    return this.first+this.second;
+                }
+                sum3(){
+                    return 100+200;
+                }
+            }
+
+            People.prototype.sum2 = function(){
+                return 10+20;
+            }
+
+            var kim = new People('kim', 4, 6);
+            kim.sum3 = function(){
+                return 50+100;
+            }
+            console.log(kim);
+            console.log(kim.sum1());
+            console.log(kim.sum2());
+            console.log(kim.sum3());
+
+            class EvoPeople extends People{
+                constructor(name, first, second, third){
+                    //부모 클래스의 생성자 호출.
+                    super(name, first, second);
+                    this.thrid = third;
+                }
+                evoSum(){
+                    //super 뒤에 ()가 없으면 그냥 부모 클래스를 불러오는 것으로 사용됨.
+                    return super.sum1() + this.thrid;
+                }
+            }
+
+            var evoKim = new EvoPeople('kim', 30, 40, 50);
+
+            console.log('evolution', evoKim.evoSum())
+
+            //자바 스크립트에서는 객체가 다른 객체를 상속받을 수 있음.
+            //자바는 클래스에서만 상속받을 수 있지 객체는 불가능.
+
+            var pObj = {pVal:'parents'}
+            var cObj = {cVal: 'child'}
+            
+            cObj.__proto__ = pObj; //prototype != __proto__
+            //cObj.prototype = pObj; //<-이렇게 하면 안됨.
+            //__proto__를 사용하는 것은 준 표준이라 안되는 것도 있음.
+            console.log(cObj.cVal + 'a');
+            console.log(cObj.pVal + 'b');
+
+            //cObj의 프로토만 바꾸지 pObj를 변경하지는 않는다.
+            cObj.pVal = 'OtherParents';
+            console.log(pObj.pVal);
+//debugger//실행을 하면 여기서 멈춤 (여기서 멈춰서 source 탭에서 각 상황을 볼 수 있다.)
+            //아래처럼 하는 것이 더 명확하고 좋다. (더 권장됨)
+            var cObj2 = Object.create(pObj);
+            console.log(cObj2.cVal);
+            console.log(cObj2.pVal);
+
+            // 남의 함수를 객체 상속으로 받아서 사용 가능.
+            yoo = {
+                name : 'yoo',
+                first : 2,
+                second : 3,
+                sum : function(){
+                    return this.first + this.second;
+                }
+            }
+
+            lee = {
+                name : 'lee',
+                first : 1,
+                second : 3,
+            }
+
+            lee.__proto__ = yoo;
+
+            console.log(lee.sum());
+
+
+            var kam = {name:'kam', first:1, second:2}
+            var jun = {name:'jun', first:3, second:4}
+            function summury(){
+                return this.first + this.second;
+            }
+            //summury를 호출하는 것. = summury();
+            console.log(summury.call(kam));//this = kam이 된다.
+
+            function plus(val1){
+                return this.first + this.second + val1;
+            }
+
+            console.log(plus.call(jun, 2));
+
+            //call = apply
+
+            //bind : this를 인자 객체로 하는 새로운 함수를 리턴한다.
+            // plus는 그대로 임.
+            var newKam = plus.bind(kam, 3);
+
+            console.log(newKam());
+
+            function Parent(name, first, second){
+                this.name = name;
+                this.first = first;
+                this.second = second;
+            }
+
+            Parent.prototype.sum = function(){
+                return this.first + this.second;
+            }
+
+            function Child(name, first, second, third){
+                Parent.call(this, name, first, second);
+                this.third = third;
+            }
+
+            Child.prototype.avg = function(){
+                return (this.first+this.second+this.third)/3;
+            }
+
+            //아래처럼 해야지 sum을 사용 가능.
+            //준 표준
+            Child.prototype.__proto__= Parent.prototype;
+            
+            //표준 -> 근데 이러면 불완전해서 avg가 지워져버린다.
+            //Child.prototype = Object.create(Parent.prototype);
+            //Child.prototype.constructor = Child;
+
+            var gun = new Child('gun', 10, 20, 30);
+            console.log(gun.sum());
+            console.log(gun.avg());
         </script>
     </body>
 </html>
