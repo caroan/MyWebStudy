@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div id="box">box</div>
+        <div id="kai">kai</div>
+        <button id='move'>move</button>
+        <script>
+            $('document').ready(function(){
+                alert("hello")
+            });
+
+            //css({'속성': '값', '속성': '값'...})
+            $('#box').css('color','red');
+            $('#kai').css({'background-color':'red', 'color':'yellow'});
+            $('body').css({'background-color':'#ff0'});
+
+            //click(함수)
+            $('#kai, #box').click(function(){
+                console.log('click : ' +this.id);
+                $('#kai, #box').css({'margin-left':'0px'});
+                $(this).css({'margin-left':'100px'});
+            });
+
+            var x= 10;
+            $('#move').click(function(){
+                $('#move').css({'margin-left':x})
+                x = x+10;
+                x+=10;
+                console.log(x);
+            });
+            
+        </script>
+    </body>
+</html>
