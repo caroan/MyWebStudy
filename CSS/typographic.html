@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+            px vs em vs rem
+            요즘은 rem을 사용
+            px는 고정값으로 간다.
+            rem은 유동적이다.
+        -->
+        <style>
+            #mPx{
+                font-size: 10px
+            }
+            #mREM{
+                font-size: 1rem
+            }
+        </style>
+
+        <!--색 지정 : color(대표색) vs RGB(255색*3) vs Hex(16진수)-->
+        <style>
+            #color_color{
+                color:tomato;
+            }
+            #color_rgb{
+                color:rgb(100, 230, 90);
+            }
+            #color_hex{
+                color:#10ff10;
+            }
+        </style>
+
+        <!--justify : 양 옆이 균등하게 간다.
+        monospace : 고정폭 사용
+        family : 폰트 (앞에 것이 없으면 뒤에 것을 사용한다.)
+        weight
+    line height : 자간
+        font : 한번에 다 사용-->
+        <style>
+            #textal_left{
+                text-align: justify;
+                border:1px red solid;
+                font-family: 굴림, arial, verdana, "Helvetica Neue" monospace serif;
+                font-weight: bold;
+                line-height: 1.2;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="textal_left">Text_al: US President Donald Trump said China "broke the deal" in trade talks, ramping up hostilities ahead of negotiations between the two sides. The comments come as Beijing said it would retaliate with "necessary countermeasures" if the US raises tariffs on Chinese products. Mr Trump has vowed to more than double tariffs on $200bn (£152bn) of Chinese goods on Friday.Despite that, the two sides are due to hold trade talks in the US on Thursday.                Ahead of the discussions, Mr Trump accused China's leaders of breaking the deal the US was negotiating on trade. "They broke the deal... They can't do that. So they'll be paying," Mr Trump told supporters at a campaign rally in Florida. He said if the two sides don't make a deal, there was "nothing wrong with taking in more than $100bn a year". Only recently, the two sides seemed to be nearing an agreement that would put an end to the trade war. But on Sunday Mr Trump said on Twitter the US would hike tariffs on $200bn worth of Chinese goods this week and could introduce fresh tariffs. US Trade Representative Robert Lighthizer later accused China of backtracking on commitments in trade talks. However, he insisted a deal with Beijing was still possible.</p>
+        <div id="color_color">Color</div>
+        <div id="color_rgb">RGB</div>
+        <div id="color_hex">Hex</div>
+        <div id="mPX">px</div>
+        <div id="mREM">rem</div>
+    </body>
+</html>

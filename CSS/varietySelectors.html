@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+            가상 클래스 : 아직 일어날 일은 아니지만 일어났을 때를 대비한 것.
+            link = 방문전 링크
+            visited = 방문후 링크 여기서는 보안 문제로 사용에 제약이 있다.
+            hover = 마우스 오버 상태
+            active = 누르고 있는 상태
+            focus = 탭키로 포커스를 준 상태
+
+            각 속성은 맨 아래 있는 것이 맨 위의 것을 갱신한다.
+        -->
+        <style>
+            a:link{
+                color:black;
+            }
+            a:visited{
+                color: red;
+            }
+            a:hover{
+                color: yellow;
+            }
+            a:active{
+                color:green;
+            }
+            a:focus{
+                color:white;
+            }
+        </style>
+
+        <!--다양한 선택자를 알아보고 싶으면 https://flukeout.github.io/ 로 들어가볼 것-->
+        <!--속성을 알고 싶으면 마이크로소프트에서 이야기한 속성 빈도를 확인하면 된다.-->
+    </head>
+    <body>
+        <a href="http://www.naver.com">naver</a>
+        <a href="http://www.daum.com">daum</a>
+        <script>
+        </script>
+    </body>
+</html>

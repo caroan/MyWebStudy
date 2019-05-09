@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+            태그는 그 태그 전체를
+            id는 하나만 사용할 때
+            class는 여러개를 다중 사용할 때 사용
+
+            '부모 자식' 으로 적용 가능. 자식 밑에 또 자식이 있으면 그 자식 아래로 연속해서 적용 가능
+            '부모>자식' 으로 적용 시 바로 밑의 자식만 적용 가능
+            '노드, 노드, ...' 으로 적용시 다중 선택이 된다.
+        -->
+        <style>
+            h2{color:blue}
+            li{
+                color:violet;
+                text-decoration: underline;
+            }
+            #ids{
+                font-size: 10px;
+            }
+            .classs{
+                background-color: black;
+            }
+            #parentOL li{
+                font-size: 30px;
+            }
+
+            #parentOL>li{
+                border: 1px solid red;
+                color: blue;
+            }
+
+            #parentOL, #parentUL{
+                background: gray
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="color:red">World</h1>
+        <h2>Blue</h2>
+        <ul>
+             <li class="classs">first</li>
+            <li id="ids">second</li>
+            <li class="classs">third</li>
+        </ul>
+
+        <ul id="parentUL">
+            <li>ul-first</li>
+            <li>ul-second</li>
+            <li>ul-third</li>
+        </ul>
+
+        <ol id="parentOL">
+            <li>ol-first</li>
+                <ol>
+                    <li>ol-first-ol-first</li>
+                    <li>ol-second-ol-second</li>
+                    <li>ol-third-ol-third</li>
+                </ol>
+            <li>ol-second</li>
+            <li>ol-third</li>
+        </ol>
+        <script>
+        </script>
+    </body>
+</html>
