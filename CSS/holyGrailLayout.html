@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <style>
+            /*
+            홀리그레일 레이아웃 : 중앙 + 4방위로 이루어진 레이아웃
+            flex 로 아래와 같이 쉽게 작업할 수 있다.
+            아래 nav, main, aside,content를 제외한 모든 이름은 예약어로 자동 완성이 가능하다.
+            */
+            .container{
+                display: flex;
+                flex-direction: column;
+            }
+            header{
+                border-bottom: 1px black solid;
+                padding: 20px;
+            }
+            footer{
+                border-top: 1px black solid;
+                padding: 20px;
+                text-align: center;
+            }
+            .content{
+                display: flex;
+            }
+            .content nav{
+                border-right: 1px black solid;
+            }
+            .content aside{
+                border-left: 1px black solid;
+            }
+            nav, aside{
+                flex-basis: 150px;
+                flex-shrink: 0;
+            }
+            main{
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Subject</h1>
+            </header>
+            <section class="content">
+                <nav>
+                    <ul>
+                        <li>html</li>
+                        <li>css</li>
+                        <li>javascript</li>
+                    </ul>
+                </nav>
+                <main>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, ea aliquid. Tempora impedit corporis laborum ipsa illum. Quos aliquam rerum, deserunt similique totam, ratione blanditiis excepturi quia adipisci temporibus earum?
+                </main>
+                <aside>
+                    AD
+                </aside>
+            </section>
+            <footer>
+                <a href="http://www.naver.com">naver</a>
+            </footer>
+        </div>
+    </body>
+</html>

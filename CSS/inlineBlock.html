@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style>
+            /*
+            block level element : 하나의 행을 다 쓰는 엘리먼트
+            inline : 자신이 필요한 공간만 사용 하는 엘리먼트
+            inline <-> block level 로 바꿀 수 있다.
+            */
+            h1, a{
+                border: red 1px solid;
+            }
+            #hello2{
+                display: inline;
+            }
+            #daum{
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        안녕하세요. <a href="http://www.naver.com">naver</a>
+        <h1 id="hello2">Hello2</h1>
+        안녕하세요. <a id="daum" href="http://www.daum.com">daum</a>
+    </body>
+</html>

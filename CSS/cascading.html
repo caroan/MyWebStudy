@@ -3,10 +3,19 @@
         <style>
             /*
             웹페이지 우선순위 : 저자 > 사용자 > 웹브라우저
+            선택자 우선 순위 : important 붙은 선택자 > 해당 행에 들어간 style 어트리뷰트 > id > class > 태그 선택자
             */
+            li{color:red;}
+            #idsel{color:blue;}
+            .classsel{color:green;}
+            .classsel{color:yellow !important;}
         </style>
     </head>
     <body>
-        
+        <ul>
+            <li>HTML</li>
+            <li id="idsel" class="classsel" style="color:purple">CSS</li>
+            <li>Javascript</li>
+        </ul>
     </body>
 </html>
