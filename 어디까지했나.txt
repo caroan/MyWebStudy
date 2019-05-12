@@ -1,12 +1,12 @@
 --- 학습 완료 ---
 Web1 - html&internet
-Javascript 입문 수업 & Web2 Javascript
+Javascript 입문 수업 & Web2 Javascript & Javascript 객체 지향 프로그래밍
 AWS - Educate
 지옥에서 온 Git
 Web2 CSS
 
 --- 학습 중 ---
-Javascript 객체 지향 프로그래밍 - 13
+ CSS 수업 - 27
 
 --- 학습 할 것 ---
 Node.js
