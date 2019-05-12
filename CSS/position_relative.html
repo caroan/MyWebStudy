@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <style>
+            html{
+                border:1px solid gray;
+            }
+            div{
+                border:1px solid tomato;
+                margin: 10px;
+            }
+
+            #me{
+                /* 
+                offset : position:relative + left, right, top, bottom
+                left > right, top > bottom
+
+                기본 포지션 값 : static(오프셋 값 무시)
+                원래 있어야 하는 위치에서 오프셋을 주고 싶다면 : relative
+                 */
+                position: relative;
+                left: 100px;
+                top:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="other">other</div>
+        <div id="paren">
+            parent
+            <div id="me">me</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <style>
+            /*
+            마진 겹침 현상 - 1
+            두 마진이 겹칠 경우 더 큰 마진 값이 두 엘리먼트 사이의 마진 값으로 퉁쳐진다.
+            */
+            .problemState1_1{
+                border: 1px red solid;
+                margin: 100px;
+            }
+            .problemState1_2{
+                margin:30px
+            }
+
+            /*
+            부모 자식 사이에 부모가 시각적으로 안보이게 되면,
+            부모 자식 둘 중 더 마진 값이 큰 녀석의 마진값만 사용되고 다른 마진 값은 무시된다.
+            (부모/자식 모두 보일 경우 둘다 같이 사용된다.)
+            */
+
+            #parent{
+                border: 1px solid tomato;
+                margin-top: 100px;
+            }
+
+            #child{
+                background-color: powderblue;
+                margin-top: 50px;
+            }
+
+            /* 
+            시각적 효과가 사라진 태그의 경우 
+            상 / 하 중 더 큰 마진 값의 값을 갖고 다른 것은 무시한다.
+             */
+
+            #empty{
+                margin-top:50px;
+                margin-bottom: 100px;
+                /* border:1px solid tomato; */
+            }
+
+            #normal{
+                background-color: powderblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="problemState1_1">H1 Tag - 1</h1>
+        <h1 class="problemState1_1">H1 Tag - 2</h1>
+    </body>
+    <ul>
+        <li class="problemState1_2">html</li>
+        <li class="problemState1_2">css</li>
+        <li class="problemState1_2">js</li>
+    </ul>
+
+    <div id="parent">
+        <div id="child">CHILD</div>
+    </div>
+
+    <div id="empty"></div>
+    <div id="normal">normal</div>
+</html>

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <style>
+
+            /* 
+            fixed : 스크롤에 상관없이 특정 화면 위치에 해당 엘리먼트를 고정 시키고 싶을 때 사용.
+            부모가 없어지면서 자기 크기만큼만 가진다.
+             */
+            #parent, #other, #grand{
+                border:5px solid tomato;
+                font-size: 20px;
+            }
+            #grand{
+                position: relative;
+            }
+            #large{
+                height: 1000px;
+                color: white;
+                background-color: blue;
+            }
+            #me{
+                /*
+                */
+                font-size: 15px;
+                background-color: black;
+                color: white;
+                position: fixed;
+                right: 0px;
+                bottom: 0px;
+                width: 100%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="other">other</div>
+        <div id="parent">
+            parent
+        <div id="me">me</div>
+    </div>
+    <div id="large">large</div>
+    </body>
+</html>

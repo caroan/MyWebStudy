@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            #parent, #other, #grand{
+                border:5px solid tomato;
+                font-size: 20px;
+            }
+            #grand{
+                position: relative;
+            }
+            #me{
+                /*
+                absolute 값의 기본 값은 자기 바로 위 부모 위치이다.
+                또한 포지션을 absolute를 하면 상태가 Static인 부모와의 관계가 사라지고 상태가 relative인 부모가 나타날때까지 올라가게 된다.
+                또한 부모 관계가 사라지면서 크기도 자기 실제 크기만하게 가져가게 된다.
+                위치를 left :0, top :0으로 했을 경우 relative인 부모의 위치를 기반으로 0, 0을 잡는다.
+                */
+                font-size: 15px;
+                background-color: black;
+                color: white;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                /* width: 200px;
+                height: 100px; */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="other">other</div>
+        <div id="grand">
+            grand
+            <div id="parent">
+                parent
+                <div id="me">me</div>
+            </div>
+        </div>
+    </body>
+</html>
