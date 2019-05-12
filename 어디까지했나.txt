@@ -6,7 +6,7 @@ AWS - Educate
 Web2 CSS
 
 --- 학습 중 ---
- CSS 수업 - 27
+ CSS 수업 - 41 - 끝부분 한번만 더 볼것.
 
 --- 학습 할 것 ---
 Node.js

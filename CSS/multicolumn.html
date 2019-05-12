@@ -1,0 +1,39 @@
+<html>
+<head>
+    <style>
+        .column{
+            text-align: justify;
+            /*
+            column-count보다 더 많은 컬럼이 생기지 않는다.
+            column-width 만큼 나눠서 사용할 수도 있다.
+            위 둘다 사용할 수 있다.
+            공간이 넉넉하면 count가 우선이고 그 이후 공간이 적어 지면 width에 따라 컬럼이 나눠지게 된다.
+            */
+            column-count: 4;
+            /* column-width: 200px; */
+            /* 컬럼 간 갭, 컬럼 분할 선 스타일, 컬럼 분할 선 굵기, 컬럼 선 색상 */
+            column-gap: 30px;
+            column-rule-style: dashed;
+            column-rule-width: 3px;
+            column-rule-color: red;
+        }
+        h1{
+            /* 컬럼에 구애받지 않고 자유롭게 넘나들수 있다. */
+            /* 왜 안되지? << 크롬에서만 되고 파폭에서는 안됨.*/
+            column-span: all;
+        }
+    </style>
+</head>
+<body>
+    <div class="column">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum saepe cumque dignissimos nobis voluptate. Suscipit, voluptates. Earum in perspiciatis laborum nesciunt dignissimos maxime quam magni nihil. Iste voluptas ipsam aperiam?
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </h1>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum saepe cumque dignissimos nobis voluptate. Suscipit, voluptates. Earum in perspiciatis laborum nesciunt dignissimos maxime quam magni nihil. Iste voluptas ipsam aperiam?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum saepe cumque dignissimos nobis voluptate. Suscipit, voluptates. Earum in perspiciatis laborum nesciunt dignissimos maxime quam magni nihil. Iste voluptas ipsam aperiam?
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </h1>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum saepe cumque dignissimos nobis voluptate. Suscipit, voluptates. Earum in perspiciatis laborum nesciunt dignissimos maxime quam magni nihil. Iste voluptas ipsam aperiam?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum saepe cumque dignissimos nobis voluptate. Suscipit, voluptates. Earum in perspiciatis laborum nesciunt dignissimos maxime quam magni nihil. Iste voluptas ipsam aperiam?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum saepe cumque dignissimos nobis voluptate. Suscipit, voluptates. Earum in perspiciatis laborum nesciunt dignissimos maxime quam magni nihil. Iste voluptas ipsam aperiam?
+    </div>
+</body>
+</html>

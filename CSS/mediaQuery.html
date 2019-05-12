@@ -1,0 +1,33 @@
+<html>
+<head>
+    <!--모바일에서는 아래처럼 meta 태그를 넣어줘야 한다.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 반응형 웹페이지에 사용. */
+
+        /*
+        width : 딱 해당 픽셀에서만 적용
+        max(min)-width : 그 이하(이상)에서 적용
+        아래 내용의 순서를 바꾸면 600과 500이 둘다 적용 되기 때문에 원하는 대로 적용이 안된다.
+        */
+        @media (max-width:600px){
+            body{
+                background-color: greenyellow;
+            }
+        }
+        @media (max-width:500px){
+            body{
+                background-color: red;
+            }
+        }
+        @media (min-width:601px){
+            body{
+                background-color: skyblue;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
