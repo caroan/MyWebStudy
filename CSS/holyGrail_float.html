@@ -1,0 +1,68 @@
+<html>
+<head>
+    <style>
+        *{
+            /* 각 엘리먼트 크기를 어떻게 정할 것이냐(기본값은 컨탠츠 */
+            box-sizing: border-box;
+        }
+        .container{
+            width: 600px;
+            border: 1px solid gray;
+            /* 왼쪽 오른쪽 마진 값을 공평하게 나눈다. */
+            margin:auto;
+        }
+        header{
+            border-bottom: 1px solid gray;
+        }
+        nav{
+            float: left;
+            border-right: 1px solid gray;
+        }
+        article{
+            float: left;
+            width: 300px;
+            border-right: 1px solid gray;
+            border-left: 1px solid gray;
+            margin-left: -1px;
+        }
+        aside{
+            float:left;
+            width: 120px;
+            
+            border-left: 1px solid gray;
+            margin-left: -1px;
+        }
+        footer{
+            clear: both;
+            text-align: center;
+            border-top: 1px solid gray;
+            margin-left: -1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+                <h1>Subject</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>Position</li>
+                    <li>Float</li>
+                    <li>Flex</li>
+                </ul>
+            </nav>
+            <article>
+                <h2>float</h2>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem ut sapiente praesentium accusantium est! Laborum alias ipsum, quibusdam quis quam reprehenderit atque magni unde ad nulla, odit et earum incidunt.
+            </article>
+            <aside>
+                AD
+            </aside>
+            <footer>
+                copyleft
+            </footer>
+    </div>
+    
+</body>
+</html>

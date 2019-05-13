@@ -1,0 +1,36 @@
+<html>
+<head>
+    <style>
+        /* 이미지를 자연스럽게 삽입할 때 , 레이아웃을 잡을 때 사용. */
+        img{
+            width: 200px;
+            float: left;
+            margin: 20px;
+        }
+        p{
+            width: 600px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <img src="sampleImage.png" alt="">
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, architecto dolore! Cum explicabo quisquam ex aliquam dolore, commodi necessitatibus id quos, reiciendis accusamus sunt minus sapiente, molestiae saepe recusandae laborum?
+    </p>
+
+    <!--
+        float을 무시하고 싶을 경우 clear 사용함
+        float 값이 left일 경우 left float를 무시하고 싶을 때 clear 값을 left로 넣고
+        float 값이 right일 경우 right float를 무시하고 싶을 때 clear 값을 right로 넣고
+        그냥 둘다 무시하고 싶으면 both로 쓰면 된다.
+    -->
+    <p style="clear: both">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, architecto dolore! Cum explicabo quisquam ex aliquam dolore, commodi necessitatibus id quos, reiciendis accusamus sunt minus sapiente, molestiae saepe recusandae laborum?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, architecto dolore! Cum explicabo quisquam ex aliquam dolore, commodi necessitatibus id quos, reiciendis accusamus sunt minus sapiente, molestiae saepe recusandae laborum?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, architecto dolore! Cum explicabo quisquam ex aliquam dolore, commodi necessitatibus id quos, reiciendis accusamus sunt minus sapiente, molestiae saepe recusandae laborum?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, architecto dolore! Cum explicabo quisquam ex aliquam dolore, commodi necessitatibus id quos, reiciendis accusamus sunt minus sapiente, molestiae saepe recusandae laborum?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, architecto dolore! Cum explicabo quisquam ex aliquam dolore, commodi necessitatibus id quos, reiciendis accusamus sunt minus sapiente, molestiae saepe recusandae laborum?
+        </p>
+</body>
+</html>
