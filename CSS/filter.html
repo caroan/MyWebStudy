@@ -1,0 +1,33 @@
+<html>
+<head>
+    <!--  -->
+    <style>
+        /*
+        그래픽 관련 내용 작업 하려고 만든 것
+        CSS Filter PlayGround 에 들어가 볼 것
+        codepen 사이트도 들어가 볼것.
+        */
+        img{
+            /* 변경 효과를 준다. */
+            transition: all 1s;
+        }
+        /* 마우스를 오버했을 때 사용 */
+        img:hover{
+            /* filter가 최신이라 아직 지원하는 브라우저가 있을 수 있어서 접두사를 붙임 */
+            -webkit-filter:grayscale(100%) blur(2px);
+            -o-filter:grayscale(100%) blur(2px);
+            filter:grayscale(100%) blur(2px);
+        }
+        h1{
+            /* 텍스트도 필터 처리를 할 수 있다. */
+            -webkit-filter:blur(2px);
+            -o-filter:blur(2px);
+            filter:blur(2px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Subject</h1>
+    <img src="sampleImage.png" alt="">
+</body>
+</html>
