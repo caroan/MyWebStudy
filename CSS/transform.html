@@ -18,6 +18,16 @@
                 scaleY(0.5); 
             /* 위 코드는 아래와 같다. */
             transform: scale(1.5, 0.5);
+            
+        }
+        h1:hover{
+            transform: scale(1.5);
+            /* 앵커값을 수정
+            x축 : 0~100%
+            y축 : 0~100%
+            z축 : 0~100% */
+            transform-origin: 0 100% -;
+            transition: all 1s;
         }
     </style>
 </head>
