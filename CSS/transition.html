@@ -1,0 +1,66 @@
+<html>
+<head>
+    <style>
+        body{
+            background-color: skyblue;
+            transition: 1s;
+        }
+        /* 변환 관련 속성들 변환을 부드럽게 표현 */
+        a{
+            font-size: 3rem;
+            /* transition의 transform은 인라인에서는 동작하지 않는다. */
+            display: inline-block;
+            /* 모든 효과에 대해 변화가 일어났을 때 전환(transition)이 일어난다는 뜻 */
+            /* transition-property: all; */
+
+            /* 일부 효과(트랜스폼, 폰트 사이즈)에 대해 전환을 일으키다. */
+            /* transition-property: transform font-size;*/
+            /* transition-duration: 1s; */
+
+            /* 위와 동일한 내용을 줄여놓은 것이 아래다. */
+            transition: transform 1s, font-size 0.1s;
+
+            /* 트랜지션에 대해 딜레이를 준다. */
+            transition-delay: 1s;
+
+            /* 타이밍 펑션을 통해 보다 자연스러운 움직임을 연출할 수 있다. */
+        }
+        /* 클릭 : active */
+        a:active{
+            transform: translate(20px, 20px);
+            font-size: 2rem;
+        }
+        div{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            width: 100px;
+            height: 50;
+            transition: height 1s;
+            /* 보다 스무스하게 움직이게 하는 것 기본은 이지이다.
+            Ceaser 사이트에서 이것을 확인해볼 것. */
+            /* transition-timing-function: linear; */
+
+            /* 위 내용에 대한 벤더 프리픽스는 아래와 같다. */
+            -webkit-transition: all 500ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+            -moz-transition: all 500ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+            -o-transition: all 500ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+            transition: all 500ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+
+            -webkit-transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+            -moz-transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+            -o-transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+            transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+        }
+
+        div:hover{
+            height: 400px;
+        }
+    </style>
+</head>
+<!-- onload : 바디 태그가 다 로드 되었을 때 -->
+<body onload="document.querySelector('body').style.backgroundColor='white';">
+    <a href="#">click</a>
+    <div>Transition</div>
+</body>
+</html>
