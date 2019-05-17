@@ -1,6 +1,10 @@
 <html>
 <head>
+    <!-- 아이콘 사용을 위한 링크 -->
     <link rel="stylesheet" href="fontello-0fe632fe/css/fontello.css">
+    
+    <!-- 애니메이션 사용을 위한 링크 -->
+    <link rel="stylesheet" href="fontello-0fe632fe/css/animation.css">
     <style>
         /* 
         fontello.com 확인
@@ -9,15 +13,37 @@
          body{
              /* fontello의 폰트를 사용한다고 선언을 해야 한다. */
              font-family: "fontello";
+             color: red;
+             font-size: 100px;
+         }
+         /* CSS에서 아래와 같이 컨탠츠에 넣을 것을 넣도록 할 수 있다.(검색엔진에서는 이 문자를 신경안씀) */
+         .test:before{
+             content: "s-";
+             color:aquamarine;
+         }
+         .test:after{
+             content: "-e";
+             color:chartreuse;
+         }
+         .test{
+             color: blue;
          }
     </style>
 </head>
 <body>
-    a
+    <div class="test">test</div>
+    a<br>
     <!-- 유니코드에서의 A를 아래와 같이 나타낸다. unicode-table.com확인 -->
-    &#65;
+    &#65;<br>
 
     <!-- fontello demo에서 코드를 가져와 0 대신에 $#을 사용해야 한다. -->
-    &#xe800
+    &#xe800<br>
+
+    <!-- 위 코드는 외우기 힘드므로 아래와 같이 사용한다. 아래꺼는 위에 font-family를 따로 지정해지 않아도 된다. -->
+    <i class="icon-user-add"></i>
+
+    <i class="icon-user-add animate-spin"></i>
+
+    <!-- svj 파일 만들기 사이트 thenounproject.com -->
 </body>
 </html>
