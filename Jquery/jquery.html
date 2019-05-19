@@ -4,11 +4,29 @@
         <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
         <!-- jquery 최신 버전으로 사용하기 -->
         <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <style>
+            #move{
+                transition: all 0.4s;
+            }
+            .tab_menu{
+                position:absolute;
+                left: 200px; top: -500px; width: 400px; height: 500px;
+                background-color: rgba(0,0,0,0.5);
+                transition: top 0.4s;
+            }
+            /* tab_menu에 액티브 클래스를 하나 더 추가함. */
+            .tab_menu.active{
+                top: 200px;
+            }
+        </style>
     </head>
     <body>
         <div id="box">box</div>
         <div id="kai">kai</div>
+        <button id='callTab'>callTab</button>
+        <button id='awayTab'>awayTab</button>
         <button id='move'>move</button>
+        <div class="tab_menu"></div>
         <script>
 
             //ready : 로드 완료 시 이벤트.
@@ -34,6 +52,15 @@
                 x = x+10;
                 x+=10;
                 console.log(x);
+            });
+
+            // 필요할 때 클래스 하나를 추가한다. 
+            $('#callTab').click(function(){
+                $('.tab_menu').addClass("active");
+            });
+
+            $('#awayTab').click(function(){
+                $('.tab_menu').removeClass("active");
             });
             
         </script>
