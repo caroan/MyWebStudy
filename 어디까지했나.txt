@@ -13,5 +13,4 @@ Web2 CSS & CSS 수업
 
 --- 학습 할 것 ---
 Node.js
-jQuery
 WebGL
