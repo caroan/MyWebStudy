@@ -1,0 +1,77 @@
+<html>
+<head>
+    <style>
+        .container{
+            margin-top: 35px;
+        }
+        #myVideo{
+            display: block;
+            width: 300px;
+            height: 300px;
+        }
+        #box{
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            text-align: center;
+            font-size: 14px;
+            background-color: gray;
+            color: blue;
+        }
+        @media only screen and (max-width: 780px) /*780 이하에서만*/{
+            #myVideo{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</body>
+    <div class="container">
+        <button id="play">play</button>
+        <button id="pause">pause</button><br>
+        <!-- video는 img와 동일하게 다루면 된다.
+            controls : 제어바,
+            autoplay : 자동 실행,
+            loop : 반복 재생,
+            muted : 음소거
+            inline이 기본 값이다.
+        -->
+        <video id="myVideo" src="sampleVideo.mp4" controls autoplay loop muted></video>
+
+        <!-- 
+            DOM : 자바스크립트를 사용한 노드의 접근 방식(Document Object Model) 
+            반대로는 제이쿼리 접근 방식이 있다.
+        -->
+        <div id="box">box</div>
+        <div class="alot">Lot1</div>
+        <div class="alot">Lot2</div>
+        <div class="alot">Lot3</div>
+        <div class="alot">Lot4</div>
+        <div class="alot">Lot5</div>
+        <script>
+            // 제이쿼리를 이용한 접근 방식 
+            $('#box').css({'background-color':'yellow'});
+
+            // Dom 접근 방식
+            
+            var myBox = document.getElementById('box');
+            // 아이디는 하나이기 때문에 저렇게 할 수 있다.
+            myBox.style.color = 'red';
+
+            myBox.addEventListener('click', function(){
+                if(myBox.style.color === 'red'){
+                    myBox.style.color = 'blue';
+                }
+                else{
+                    myBox.style.color = 'red';
+                }
+            });
+
+            // 태그나 클래스처럼 여러개를 사용하는 경우에는 아래처럼 배열로 해서 몇번째를 사용할 지를 정해줘야 한다.
+            var mList = document.getElementsByClassName('alot')[0];
+            mList.style.color = 'blue';
+        </script>
+    </div>
+</html>
