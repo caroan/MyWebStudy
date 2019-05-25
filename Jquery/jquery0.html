@@ -14,9 +14,19 @@
         <li class="last_li">Third List</li>
     </ul>
     <ul>
-        <li>first2</li>
-        <li>second2</li>
-        <li>third2</li>
+        <li id="clickMe">Click me</li>
+        <li id="removeEvent">Remove Event</li>
+        <li id="triggerEvent">Trigger Event</li>
+    </ul>
+    <ul>
+        <li id="clickMe2">Click me - 2</li>
+        <li id="removeEvent2">Remove Event - 2</li>
+        <li id="triggerEvent2">Trigger Event - 2</li>
+    </ul>
+    <ul>
+        <li id="livekMe">Live me</li>
+        <li id="dieEvent">die Event</li>
+        <li id="triggerEvent3">Trigger Event</li>
     </ul>
     <script>
         $('.welcome').html('Hello welcome world').css({'color':'red'});
@@ -29,6 +39,47 @@
         // 아래의 경우 .first_li 윗단계인 ul.first_ul로 돌아간다.
         //api.jquery에서 카테고리 중에 트래버싱을 찾아서 보도록 하자.
         jQuery('ul.first_ul').find('.first_li').css('color', 'red').end().find('.last_li').css('color', 'blue');
+
+        // 이벤트를 붙여주고 뗄 수 있다.
+        function clickHandler(e){
+            console.log('you clicked');
+        }
+
+        // ready : 화면에 모든 로딩이 끝났을 때를 의미한다.
+        $(document).bind('ready', function(){
+            $('#clickMe').bind('click', clickHandler);
+            $('#removeEvent').bind('click', function(e){
+                $('#clickMe').unbind('click', clickHandler);
+            });
+            $('#triggerEvent').bind('click', function(e){
+                $('#clickMe').trigger('click');
+            });
+        });
+
+        // 위 내용을 이벤트 헨들러로 아래와 같이 만들 수 있다.
+
+        $(document).ready(function(){
+            $('#clickMe2').click(clickHandler);
+            $('#removeEvent2').click(function(e){
+                $('#clickMe2').unbind('click', clickHandler);
+            });
+            $('#triggerEvent2').click(function(e){
+                $('#clickMe2').trigger('click');
+            });
+        });
+
+        // live : 존재하지 않는 엘리먼트에 대해서 이벤트를 설치할 수 있다.
+        // 라이브는 위임 방식을 사용한다.
+        // 조금 위험할 수 있기 때문에 반드시 필요한게 아니라면 안하는 게 좋다.
+        // 아래 현재 live가 함수가 아니라는 에러가 뜨기 때문에 확인이 필요하다.
+        // $('#livekMe').live('click', clickHandler);
+        // $('#dieEvent').live('click', function(e){
+        //     $('#livekMe').die('click', clickHandler);
+        // });
+        // $('#triggerEvent3').live('click', function(e){
+        //     $('#livekMe').trigger('click');
+        // });
+        
     </script>
 </body>
 </html>
