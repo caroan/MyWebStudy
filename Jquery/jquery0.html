@@ -1,7 +1,14 @@
 <html>
 <head>
         <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <style></style>
+    <style>
+        .textRed{
+            color: red;
+        }
+        .backgroundYellow{
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
     <div class="welcome">welcome</div>
@@ -28,6 +35,21 @@
         <li id="dieEvent">die Event</li>
         <li id="triggerEvent3">Trigger Event</li>
     </ul>
+    <button id="deleteMe">DeleteMe</button>
+    <button id="replacebtn">replace</button>
+    <div class="replaceMe">replace me</div>
+    <div class="replaceMe">replace me</div>
+    <div class="replaceMe">replace me</div>
+    <div class="textRed">Toggle Here - 1</div>
+    <div class="textRed">Toggle Here - 2</div>
+
+    <input type="text" value="some text" id="inputAttr"></input>
+    <div id="outputAttr"></div>
+
+    <input type="text" id="form1"/>
+    <span id="statusInform1"></span>
+
+
     <script>
         $('.welcome').html('Hello welcome world').css({'color':'red'});
 
@@ -79,7 +101,50 @@
         // $('#triggerEvent3').live('click', function(e){
         //     $('#livekMe').trigger('click');
         // });
+
+
+        // 엘리먼트 제어.
+        // http://api.jquery.com/category/manipulation/ 참고할 것.
         
+        // 자식으로 삽입 (.append(), .appendTo(), .html(), .prepend(), .prependTo(), .text())
+        $('.first_li').append("<p>append here</p>");
+        // 형제로 삽입 (.after(), .before(), .insertAfter(), .insertBefore())
+        $('.last_li').after('<p>after here</p>');
+        // 부모로 감싸기 (.unwrap(), .wrap(), .wrapAll(), .wrapInner())
+        $('.welcome').wrap('<div><p><b><em></em></b></p></div>');
+        // 특정 html 엘리먼트 삭제 (.detach(), .empty(), .remove(), .unwrap())
+        $('#deleteMe').click(function(){
+            $('#deleteMe').remove();
+        });
+        //치환 (.replaceAll(), replaceWith())
+        $('#replacebtn').click(function(){
+            $("<p id='replacedme'>replaced Me</p>").replaceAll('.replaceMe');
+        });
+
+        //클래스 제어 (addClass(): 클래스 추가, hasClass(): 클래스 유무, removeClass(): 클래스 제거, toggleClass(): 가지고 있으면 삭제, 가지고 있지 않으면 추가)
+        //클래스는 하나의 태그에 여러개를 쓸 수 있다.
+        $('.textRed').click(function(){
+            $(this).toggleClass('backgroundYellow');
+        });
+
+        //속성 제어 (attr(), prop(), removeAttr(), removeProp(), val(): 내용을 가져온다.)
+        // keyup() : 타이핑에서 손을 뗐을 때
+        $('#inputAttr').keyup(function(){
+            var value = $(this).val();
+            $('#outputAttr').text(value);
+            // 아래 keyup은 트리거 이다.
+        }).keyup();
+
+        // focus : 포커스 줌, blur : 포커스 해제, change : 값 변경, select : 특정 텍스트 선택
+        $('#form1').focus(function(){
+            $(this).next('#statusInform1').html('focus');
+        }).blur(function(){
+            $(this).next('#statusInform1').html('blur');
+        }).change(function(e){
+            alert('change ' + $(e.target).val())
+        }).select(function(){
+            $(this).next('#statusInform1').html('select');
+        });
     </script>
 </body>
 </html>
