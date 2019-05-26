@@ -49,6 +49,14 @@
     <input type="text" id="form1"/>
     <span id="statusInform1"></span>
 
+    <form id="form2" action="javascript:alert('sucess!!');">
+        <div>
+            <input id="input1" type="text"/>
+            <input type="submit"/>
+        </div>
+    </form>
+    <span id="statusInform2"></span>
+
 
     <script>
         $('.welcome').html('Hello welcome world').css({'color':'red'});
@@ -144,6 +152,17 @@
             alert('change ' + $(e.target).val())
         }).select(function(){
             $(this).next('#statusInform1').html('select');
+        });
+
+        // submit(), val()
+        // return 값이 참이면 java액션(디폴트 비헤비어)을 실행한다.
+        $('#form2').submit(function(){
+            if($('#input1').val() === 'correct'){
+                $('#statusInform2').text('valid').show();
+                return true;
+            }
+            $('#statusInform2').text('not valid').show().fadeOut(1000);
+            return false;
         });
     </script>
 </body>
