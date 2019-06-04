@@ -7,11 +7,13 @@ Web2 CSS & CSS 수업
 
 --- 학습 중 ---
  CSS 수업 - CSS 뛰어넘기, preprocesser 다시 따라해보기. <- 이거 stylus 찾을 수가 없어서 지금 학습 안해도 될거 같다.
- 생활 코딩 - Jquery 8회 두번째 submit 관련 내용 할것.
+ 생활 코딩 - Jquery 12회
  jQuery  - x th - 44일차 part4 / 비디오를 제어하는 play(),pause() 메서드
  조건부 주석이 뭔지 확인해볼 것.
  생활 코딩 - Jquery 2회 - 코드를 확인해볼것.
  생활 코딩 - Jquery 4회 선택자 - 코드를 확인해볼것.
+ 생활 코딩 - Jquery 10회 탐색 - 코드를 확인해볼것.
+ 생활 코딩 - Jquery 11회 애니메이션 - 코드를 확인해볼것.
 
 --- 학습 할 것 ---
 Node.js
