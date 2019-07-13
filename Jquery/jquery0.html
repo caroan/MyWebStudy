@@ -62,7 +62,7 @@
         $('.welcome').html('Hello welcome world').css({'color':'red'});
 
         // 제이쿼리는 무조건 엘리먼트를 반환하기 때문에 아래와 같이 체인으로 쓸 수 있다.
-        // jQuery() -> 엘리먼트 반환, attr() -> 엘리먼트 반환, css() -> 엘리먼트 반환
+        // jQuery() -> 엘리먼트 반환, attr() -> 엘리먼트 반환, css() -> 엘리먼트 반환 (_self는 자기 탭에서 이동, _blank는 다른 탭을 열어서 거기서 이동)
         jQuery('#tutorial').attr('href', 'http://www.daum.net').attr('target', '_blank').css('color', 'red');
 
         // end() -> 맨 마지막 트래버스를 종료하고 그 전단계 트래버스로 간다.
