@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>
+<body>
+    <!-- 버튼은 a 태그를 이용, 좀 작은 버튼을 만들고 싶으면 data-mini를 true로 사용. -->
+    <a href="" data-role="button">NormalButton</a>
+    <a href="" data-role="button" data-mini='true'>miniButton</a>
+    
+    <!-- form의 각 버튼을 아래와 같이 만들 수도 있다. -->
+    <form action="">
+        <button>normalButton</button>
+        <input type="button">
+        <input type="submit">
+        <input type="reset">
+        <input type="image">
+    </form>
+    <!-- 버튼에 아이콘을 사용하고 싶은 경우 data-icon를 사용할 것 -->
+    <a href="" data-role="button" data-icon="arrow-l">left</a>
+    <a href="" data-role="button" data-icon="arrow-r">right</a>
+    <!-- 아이콘의 위치는 data-iconpos로 수정 가능 -->
+    <a href="" data-role="button" data-icon="arrow-r" data-iconpos='top'>right</a>
+
+    <!-- 버튼의 그룹핑 -->
+    <div data-role="controlgroup">
+        <a href="index.html" data-role="button">Yes</a>
+        <a href="index.html" data-role="button">No</a>
+        <a href="index.html" data-role="button">Maybe</a>
+    </div>
+
+    <!-- 버튼의 그룹핑 (가로로 그룹핑) -->
+    <div data-role="controlgroup" data-type="horizontal">
+        <a href="index.html" data-role="button">Yes</a>
+        <a href="index.html" data-role="button">No</a>
+        <a href="index.html" data-role="button">Maybe</a>
+    </div>
+
+    <!-- 버튼에 data-theme로 버튼 테마를 줄 수 있다. (a,b,c,d,e 중 하나 선택) -->
+
+    <a href="" data-role="button" data-theme='a'>theme-A</a>
+    <a href="" data-role="button" data-theme='b'>theme-B</a>
+    <a href="" data-role="button" data-theme='c'>theme-C</a>
+    <a href="" data-role="button" data-theme='d'>theme-D</a>
+    <a href="" data-role="button" data-theme='e'>theme-E</a>
+    <!-- f 이후로는 그냥 테마가 없는 형태가 나온다. -->
+    <a href="" data-role="button" data-theme='f'>theme-F</a>
+    <a href="" data-role="button" data-theme='g'>theme-G</a>
+</body>
+</html>

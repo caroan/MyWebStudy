@@ -1,0 +1,60 @@
+<!-- jQuery Mobile은 HTML5에 최적화 되어 있기 때문에 doctype으로 HTML5를 사용한다 -->
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <title>My Page</title> 
+    <!-- 모바일 디바이스를 위한 설정, 사용자가 zoom 기능을 사용하지 못하게 하고, 장치의 스크린폭 사이즈에 따라 화면을 표시한다. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <!-- jQuery mobile에서 사용하는 css, javascript. 아래 3개의 리소스를 로드해야 함 -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    </head>
+    <body>
+
+    <!--page : 모든 구성요소를 포함하는 가장 큰 단위로 single template와 multi-page template이 있다.
+        dialog : 대화상자 
+        header bar : 상단에 위치하면서 제목을 표시하고 페이지 이동과 관련된 버튼이 위치한다.
+        footer bar : 페이지 하단에 위치하면서 버튼이 위치한다.
+        navbars : 일반적으로 header bar나 footer bar 내에 위치하면서 특정한 페이지로 이동하는 메뉴의 역활
+        button : 버튼
+        form : 사용자로부터 데이터를 입력받는 컨트롤
+        list view : 여러개의 항목을 열거하는데 사용되는 컨트롤 -->
+
+    <!-- data-role는 jQuery mobile에서 해당 엘리먼트가 어떤 UI인지를 지정한다.
+        아래 page는 이 엘리먼트가 가장 큰 단위인 페이지임을 의미한다. -->
+    <div data-role="page">
+        
+        <!-- 제목과 글로벌 메뉴를 표시하는 엘리먼트를 지정 -->
+        <div data-role="header">
+            <h1>My Title</h1>
+        </div><!-- /header -->
+        
+        <!-- 컨텐츠가 표시되는 영역을 지정 -->
+        <div data-role="content">
+            <p>Hello world</p>     
+            
+            <ul data-role="listview" data-inset="true" data-filter="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+                <li><a href="#">BMW</a></li>
+                <li><a href="#">Cadillac</a></li>
+                <li><a href="#">Ferrari</a></li>
+            </ul>
+
+            <!-- form 엘리먼트를 모바일에 맞는 UI로 자동으로 바꿔줌. -->
+            <form>
+                <label for="slider-0">Input slider:</label>
+                <input type="range" name="slider" id="slider-0" value="25" min="0" max="100"  />
+             </form>
+
+            <!-- 버튼 추가 시 a태크를 사용하며, data-role을 버튼으로 부여한다.
+            그리고 data-icon 속성을 부여하면 해당 것을 이용한다. -->
+             <a href="#" data-role="button" data-icon="star">Star button</a>
+            
+        </div><!-- /content -->
+        
+    </div><!-- /page -->
+        
+    </body>
+</html>
