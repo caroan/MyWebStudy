@@ -4,10 +4,9 @@ Javascript 입문 수업 & Web2 Javascript & Javascript 객체 지향 프로그�
 AWS - Educate
 지옥에서 온 Git
 Web2 CSS & CSS 수업
+jQuery Mobile 수업 완료
 
 --- 학습 중 ---
-리마인드 완료
-jqueryMobile - https://opentutorials.org/course/473/2520 - Content formatting 하는 중
  CSS 수업 - CSS 뛰어넘기, preprocesser 다시 따라해보기. <- 이거 stylus 찾을 수가 없어서 지금 학습 안해도 될거 같다.
  생활 코딩 - Jquery 12회
  jQuery  - x th - 44일차 part4 / 비디오를 제어하는 play(),pause() 메서드
