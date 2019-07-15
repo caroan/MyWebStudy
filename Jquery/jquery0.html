@@ -49,12 +49,20 @@
     <input type="text" id="form1"/>
     <span id="statusInform1"></span>
 
+    <form id="form2" action="javascript:alert('sucess!!');">
+        <div>
+            <input id="input1" type="text"/>
+            <input type="submit"/>
+        </div>
+    </form>
+    <span id="statusInform2"></span>
+
 
     <script>
         $('.welcome').html('Hello welcome world').css({'color':'red'});
 
         // 제이쿼리는 무조건 엘리먼트를 반환하기 때문에 아래와 같이 체인으로 쓸 수 있다.
-        // jQuery() -> 엘리먼트 반환, attr() -> 엘리먼트 반환, css() -> 엘리먼트 반환
+        // jQuery() -> 엘리먼트 반환, attr() -> 엘리먼트 반환, css() -> 엘리먼트 반환 (_self는 자기 탭에서 이동, _blank는 다른 탭을 열어서 거기서 이동)
         jQuery('#tutorial').attr('href', 'http://www.daum.net').attr('target', '_blank').css('color', 'red');
 
         // end() -> 맨 마지막 트래버스를 종료하고 그 전단계 트래버스로 간다.
@@ -145,6 +153,21 @@
         }).select(function(){
             $(this).next('#statusInform1').html('select');
         });
+
+        // submit(), val()
+        // return 값이 참이면 java액션(디폴트 비헤비어)을 실행한다.
+        $('#form2').submit(function(){
+            if($('#input1').val() === 'correct'){
+                $('#statusInform2').text('valid').show();
+                return true;
+            }
+            $('#statusInform2').text('not valid').show().fadeOut(1000);
+            return false;
+        });
+
+        //탐색 (Traversing
+        
+        
     </script>
 </body>
 </html>

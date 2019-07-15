@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Layout Grid : 테이블과 같이 화면을 분할해서 사용하는 레이아웃
+        하나의 grid에 block 자식을 여럿 갖는 형태로,
+    ui-grid-a는 ui-block-a,b를 자식으로 갖을 수 있고, 
+    ui-grid-b는 ui-block-a,b,c를 자식으로 갖는 방식이 반복된다.
+    block은 가로를 나누는 것이므로 행을 여럿 만드록 싶으면 block-a,b,c를 아래와 같이 반복하면 된다.... -->
+
+    <fieldset class="ui-grid-b">
+        <!-- 1 행 -->
+        <div class = 'ui-block-a'><button type="submit" data-theme="c">A1</button></div>
+        <div class = 'ui-block-b'><button type="submit" data-theme="c">B1</button></div>
+        <div class = 'ui-block-c'><button type="submit" data-theme="c">C1</button></div>
+        
+        <!-- 2행 -->
+        <div class = 'ui-block-a'><button type="submit" data-theme="c">A2</button></div>
+        <div class = 'ui-block-b'><button type="submit" data-theme="c">B2</button></div>
+        <div class = 'ui-block-c'><button type="submit" data-theme="c">C2</button></div>
+    </fieldset>
+
+
+    <!-- 드롭박스처럼 원래는 숨겨져 있다가 클릭하면 생성되는 형식(재클릭시 다시 사라진다.) -->
+    <!-- data-theme와 data-content-theme를 사용해 테마 형태를 변경할 수 있다. -->
+    <div data-role="collapsible" data-theme="b" data-content-theme="b">
+        <h3>Hide&Show</h3>
+        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+    </div>
+    
+</body>
+</html>
