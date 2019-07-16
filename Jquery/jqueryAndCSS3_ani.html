@@ -1,0 +1,56 @@
+<html>
+<head>
+    <style>
+        body{
+            font-family: "Roboto", "note Sans KR", sans-serif;
+            font-size: 1em;
+            font-weight: 400;
+        }
+    </style>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+    $(function(){
+        var top = 0;
+
+        $(window).scroll(function(){
+            if(top < $("#page1").offset().top){
+                $('#page1').addClass("active");    
+            }
+            else if(top < $("#page2").offset().top){
+                $('#page2').addClass("active");    
+            }
+            else if(top < $("#page3").offset().top){
+                $('#page3').addClass("active");    
+            }
+            else if(top < $("#page4").offset().top){
+                $('#page4').addClass("active");    
+            }
+            else if(top < $("#page5").offset().top){
+                $('#page5').addClass("active");    
+            }
+            else{
+                $('#page5').removeClass("active");
+            }
+            // 스크롤의 가장 위쪽
+            console.log($(window).scrollTop());
+            // 각 컴포넌트의 가장 위쪽
+            console.log($("#page1").offset().top);
+        });
+    });
+
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <header id="header">
+            <section id="page1"><img src="image1.png" alt=""></section>
+            <section id="page2"><img src="image2.png" alt=""></section>
+            <section id="page3"><img src="image3.png" alt=""></section>
+            <section id="page4"><img src="image4.png" alt=""></section>
+            <section id="page5"><img src="image5.png" alt=""></section>
+        </header>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

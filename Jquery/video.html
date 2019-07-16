@@ -23,6 +23,9 @@
                 display: none;
             }
         }
+        .hover{
+            background-color: red;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +33,7 @@
 </body>
     <div class="container">
         <button id="play">play</button>
-        <button id="pause">pause</button><br>
+        <button id="pause">pause</button>
         <!-- video는 img와 동일하게 다루면 된다.
             controls : 제어바,
             autoplay : 자동 실행,
@@ -38,6 +41,7 @@
             muted : 음소거
             inline이 기본 값이다.
         -->
+        <button id="playAndPause">play</button><br>
         <video id="myVideo" src="sampleVideo.mp4" controls autoplay loop muted></video>
 
         <!-- 
@@ -50,6 +54,28 @@
         <div class="alot">Lot3</div>
         <div class="alot">Lot4</div>
         <div class="alot">Lot5</div>
+        <ul>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li id="hi">a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+        </ul>
         <script>
             // 제이쿼리를 이용한 접근 방식 
             $('#box').css({'background-color':'yellow'});
@@ -72,6 +98,81 @@
             // 태그나 클래스처럼 여러개를 사용하는 경우에는 아래처럼 배열로 해서 몇번째를 사용할 지를 정해줘야 한다.
             var mList = document.getElementsByClassName('alot')[0];
             mList.style.color = 'blue';
+
+            var myVid = document.getElementById('myVideo');
+
+            $("#play").click(function(){
+                console.log('play click');
+                // 제이 쿼리에는 비디오 플레이 기능이 없기 때문에 자바 스크립트 형식을 사용한다.
+                myVid.play();
+            });
+
+            $("#pause").click(function(){
+                console.log('pause');
+                myVid.pause();
+            });
+
+            $("#playAndPause").click(function(){
+                if($("playAndPause").val === 'play'){
+                    console.log('pause');
+                    $("playAndPause").val = 'pause'
+                }else{
+                    console.log('play');
+                    $("playAndPause").val = 'play'
+                }
+            });
+
+            $(window).scroll(function(){
+                console.log('scroll');
+                // 윈도우 상단 좌표
+                console.log("scrollTop : "+$(window).scrollTop());
+
+                if($(window).scrollTop() > 20){
+                    myVid.pause();
+                }
+            });
+
+            $(window).resize(function(){
+                console.log('resize');
+            });
+
+//jquery 이벤트 : 마우스 / 키보드 / 시스템 이벤트가 있음
+
+// 마우스 이벤트 : click, hover, mouseenter 등의 이벤트가 있음.
+
+// 호버에는 아래와 같이 마우스 오버를 했을 때와 마우스 오버에서 나왔을 때 2가지 이벤트를 함께 넣어줄 수 있다.
+// 포커스도 호버와 같이 포커스 인 포커스 아웃을 둘다 갖는다. - 포커스는 a와 form만 지원된다.
+            $("#play").hover(function(){
+                $('#play').addClass('hover');
+            }, function(){
+                $('#play').removeClass('hover');
+            });
+
+// 시스템 이벤트 : 자바스크립트가 가지고 있는 이벤트, ready();
+
+// ready () : 준비되었을 때 사용, html은 결국 순서대로 읽는 언어기 때문에 해당 스크립트에서 쓰는 태그 등이 그 앞전에 정의되어 있지 않을 경우 동작을 하지 않기 때문에 레디가 다 되면 진행도록 설정할 수 있다.
+// window : 현재 화면창(물리적인 모니터 화면), document : 현재 문서(문서 내용).
+            $(document).ready(function(){
+                // 스크립트 내용
+            });
+
+// 위 레디를 일일히 써야 하는게 귀찮아서 아래와 같이 기능은 동일하나 더 단축된 형태가 등장합
+            $(function(){
+                // 스크립트 내용
+            });
+
+
+// 브라우저 이벤트 : scroll(), resize() 거의 대부분 window가 해당 이벤트를 갖게 된다.
+
+//jquery 선택자 : 필터링 방식 first() =first-child, last() =last-child, eq() =nth-child(), find() =.a .b, children() =.a > b, parent() =없음, parents() =없음, next() =.a + b, nextAll() = .a~.b, prev() =없음, prev() =없음 사용
+            var a = 2;
+            $('li').eq(2+1+a).css({"background-color":'#f90'});
+
+            $('ul').find('#hi').css({'color':'blue'});
+            //부모를 바꿈
+          // $('li').parent().css({'color':'red'});
+            //조상을 바꿈(인자를 안쓰면 다 바뀜)
+           // $('li').parents('body').css({'color':'red'});
         </script>
     </div>
 </html>
