@@ -1,35 +1,97 @@
 <html>
 <head>
     <style>
+        html{/*흰 공백이 나타나는 크롭 에러에 대한 대처로 아래와 같이 최소 크기를 주도록 한다.*/
+            /* min-width: 1400px; */
+            /* 
+            가장 큰 컨텐이너에 대해사여,
+            PC 사이트에서는 반드시 min-width가 있어야 하고, 
+            모바일 사이트에서는 반드시 max-width가 있어야 한다. */
+        }
         body{
-            font-family: "Roboto", "note Sans KR", sans-serif;
+            /* font-family: "Roboto", "note Sans KR", sans-serif;
             font-size: 1em;
-            font-weight: 400;
+            font-weight: 400; */
+        }
+        #header{
+            /* position: relative;
+            width: auto;
+            height: 870px;
+            overflow: hidden;
+            background: url("image1.png") repeat center center;
+            background-size: cover; */
+        }
+
+        #intro{
+            /* position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto; */
+            width: 100%;
+            height: auto;
+        }
+
+        @media only screen and (max-width: 740px){
+            #intro{
+                display: none;
+            }
         }
     </style>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
     $(function(){
         var top = 0;
+        // DOM 노드 접근 방법 : getElementById(), getElementByTagName(), getElementByClassName()
+        var myVid = document.getElementById('intro');
+
+        // 비디오가 끝났을 때 이벤트를 알려주는 이벤트 리스너
+        myVid.addEventListener('ended', function(){
+            console.log('video end');
+            myVid.currentTime=0;
+            myVid.play();
+        });
+
+        // addClass, removeClass, toggleClass(-> 한번은 add, 한번은 remove를 한다.) 가 있음. 
+        // hasClass로 클래스를 가지고 있는지 물어볼 수 있음.
+
+        //setTimeout은 시스템 이벤트로써 자바스크립트의 이벤트이다.
+        //서버 처리 후에 동적인 UI를 구현하는 방식으로 사용된다.
+        setTimeout(function(){
+            //브라우저 위치가 아래로 가있으면, 다시 위로 돌아가게 하려고.
+            $('html, body').animate({"scrollTop":"0px"}, 300); //애니메이션을 줘서 새로고침 시 위로 올려버린다. 위치, 밀리 세컨드
+            console.log('0.3초후 로그가 발생된다.');
+        }, 300);//300밀리초 0.3초후 발생되는 이벤트이다.
+
+        // $('#header').css({'height':$('#intro').height()})
+        console.log("intro 높이 : "+$('#intro').height());
+
+        $(window).resize(function(){
+            $('#header').css({'height':$('#intro').height()})
+        });
 
         $(window).scroll(function(){
+            top = $(window).scrollTop();
             if(top < $("#page1").offset().top){
-                $('#page1').addClass("active");    
+                $('.wrapper>*').removeClass('active');
+                $('#page1').addClass("active");
+                console.log('page1');   
             }
             else if(top < $("#page2").offset().top){
+                $('.wrapper > *').removeClass('active');
                 $('#page2').addClass("active");    
             }
             else if(top < $("#page3").offset().top){
+                $('.wrapper>*').removeClass('active');
                 $('#page3').addClass("active");    
             }
             else if(top < $("#page4").offset().top){
+                $('.wrapper>*').removeClass('active');
                 $('#page4').addClass("active");    
             }
-            else if(top < $("#page5").offset().top){
-                $('#page5').addClass("active");    
-            }
             else{
-                $('#page5').removeClass("active");
+                $('.wrapper>*').removeClass('active');
+                $('#page5').addClass("active");    
             }
             // 스크롤의 가장 위쪽
             console.log($(window).scrollTop());
@@ -43,12 +105,17 @@
 <body>
     <div class="wrapper">
         <header id="header">
+            <div class="videoZone">
+                <!-- 비디오 자동 재생의 경우 여러 문제가 많다. (로드 되기 전에 자동 재생하기 힘들다.) -->
+                <video src="sampleVideo.mp4" id="intro" autoplay></video>
+            </div>
+        </header>
             <section id="page1"><img src="image1.png" alt=""></section>
             <section id="page2"><img src="image2.png" alt=""></section>
             <section id="page3"><img src="image3.png" alt=""></section>
             <section id="page4"><img src="image4.png" alt=""></section>
             <section id="page5"><img src="image5.png" alt=""></section>
-        </header>
+            <button id="cl">cc</button>
     </div>
     <script>
     </script>

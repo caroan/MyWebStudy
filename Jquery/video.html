@@ -148,7 +148,7 @@
                 $('#play').removeClass('hover');
             });
 
-// 시스템 이벤트 : 자바스크립트가 가지고 있는 이벤트, ready();
+// 시스템 이벤트 : 자바스크립트가 가지고 있는 이벤트, ready();, resize(), (setinterval();, setTimeout();)-> 자바스크립트 이벤트
 
 // ready () : 준비되었을 때 사용, html은 결국 순서대로 읽는 언어기 때문에 해당 스크립트에서 쓰는 태그 등이 그 앞전에 정의되어 있지 않을 경우 동작을 하지 않기 때문에 레디가 다 되면 진행도록 설정할 수 있다.
 // window : 현재 화면창(물리적인 모니터 화면), document : 현재 문서(문서 내용).
@@ -162,7 +162,7 @@
             });
 
 
-// 브라우저 이벤트 : scroll(), resize() 거의 대부분 window가 해당 이벤트를 갖게 된다.
+// 브라우저 이벤트 : scroll(), resize()->미디어 쿼리와 연관됨, (mousewheel()-> 정식 이벤트는 아니고 플러그인 이벤트 이다) 거의 대부분 window가 해당 이벤트를 갖게 된다.
 
 //jquery 선택자 : 필터링 방식 first() =first-child, last() =last-child, eq() =nth-child(), find() =.a .b, children() =.a > b, parent() =없음, parents() =없음, next() =.a + b, nextAll() = .a~.b, prev() =없음, prev() =없음 사용
             var a = 2;
