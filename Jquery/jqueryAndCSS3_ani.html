@@ -66,6 +66,8 @@
         // $('#header').css({'height':$('#intro').height()})
         console.log("intro 높이 : "+$('#intro').height());
 
+        //아래 예시외 $(window).trigger("resize"); 혹은 $(window).trigger("scroll");로 사용 가능 -> trigger : 강제 실행한다.
+
         $(window).resize(function(){
             $('#header').css({'height':$('#intro').height()})
         });

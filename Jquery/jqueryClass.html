@@ -1,0 +1,73 @@
+<html>
+<head>
+    <!-- ModernCSS : CSS3 + jQuery를 활용한 방식 IE10부터 적용 가능 그 이전 버전은 jQuery 만 사용 가능(CSS3 사용 불가)-->
+    <style>
+        .picture{
+            margin-top: 30px;
+            width: 1300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .picture ul{
+            float: left;
+            margin-left: -1300px;
+            width: 1200px;
+            -webkit-transition: margin-left 0.8s;
+            transition: margin-left 0.8s;
+        }
+
+        .picture ul.on{
+            margin-left: 0;
+        }
+
+        .picture li{
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+
+        .picture img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        .picture .handle{
+            float: left;
+            width: 20px;
+            height: 200px;
+            background: #333;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function(){
+            $('.handle').click(function(){
+                $('.picture ul').toggleClass('on');
+                console.log($('.picture ul').hasClass('on'));
+            });
+        });
+
+        setInterval(function(){
+            console.log('2초마다 계속 발생하는 것. setTimeout은 처음 한번만 발생하는 것');
+        }, 2000);
+    </script>
+</head>
+<body>
+    <h1 class="title">basic : example</h1>
+    <div class="container">
+        <div class="picture">
+            <ul>
+                <li><img src="image1.png" alt=""></li>
+                <li><img src="image2.png" alt=""></li>
+                <li><img src="image3.png" alt=""></li>
+                <li><img src="image4.png" alt=""></li>
+                <li><img src="image5.png" alt=""></li>
+            </ul>
+            <div class="handle"></div>
+        </div>
+    </div>
+</body>
+</html>
