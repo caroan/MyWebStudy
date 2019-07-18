@@ -1,0 +1,38 @@
+<!-- 언제 트랜지션을 주고 언제 애니메이션을 써야 할까? -->
+<!-- IE 브라우저 버전은 10버전 이후부터 CSS Transition을 사용 가능,
+    일반 CSS 변화를 전환효과로 사용할 수 있음. 예를 들어 width/height, top 등을 변경.
+    그러나 display 변화는 전환효과로 사용할 수 없다. -->
+<!-- 언제 jQuery animation을 사용해야 할까?
+IE 10 미만의 버전을 지원해야 할 때. + display 변화를 전환 효과로 사용할 때 -->
+<!-- CSS 트랜지션이 애니메이션보다 더 깔끔하게 움직이기는 한다. -->
+
+<html>
+    <head>
+            <style>
+                .box{
+                    height: 100;
+                    width: 100;
+                    border: 1px solid black;
+                    display: block;
+                    /* transition: 0.3s; */
+
+                }
+            </style>
+            <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+                $(function(){
+                    $(".box").hover(
+                        function(){
+                            $(this).animate({width:300, height:300}, 300);
+                        },
+                        function(){
+                            $(this).animate({width:200, height:200}, 300);
+                        }
+                    );
+                })
+            </script>
+    </head>
+    <body>
+        <div class="box"></div>
+    </body>
+</html>
