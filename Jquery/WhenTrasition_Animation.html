@@ -6,6 +6,19 @@
 IE 10 미만의 버전을 지원해야 할 때. + display 변화를 전환 효과로 사용할 때 -->
 <!-- CSS 트랜지션이 애니메이션보다 더 깔끔하게 움직이기는 한다. -->
 
+<!-- 언제 jQuery Animation을 사용할까? : 
+    animate
+    slideUp/ slideDown/ slideToggle/
+    show/ hide/
+    fadeIn/ fadeOut/ fadeToggle
+    fadeTo -->
+
+    <!-- animate({속성:값}, 시간, 완료 함수)
+        slideUp~fadeToggle(시간, 완료 함수)
+        fadeTo(시간, 불투명도, 완료 함수)
+        slideDown의 경우 Position을 absolute로 하고 left, bottom이 정해져 있으면 위에서 아래가 아니라 아래에서 위에로 슬라이드 업 된다.
+     -->
+
 <html>
     <head>
             <style>
@@ -17,6 +30,16 @@ IE 10 미만의 버전을 지원해야 할 때. + display 변화를 전환 효�
                     /* transition: 0.3s; */
 
                 }
+                .box2{
+                    display: none;
+                    height: 300;
+                    width: 300;
+                    border: 1px solid black;
+                    /* transition: all 1s; */ /* <- display가지고 트랜지션을 줄 수 없다.*/
+                }
+                /* .box:hover + div{
+                    display: block;
+                } */
             </style>
             <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
             <script>
@@ -29,10 +52,23 @@ IE 10 미만의 버전을 지원해야 할 때. + display 변화를 전환 효�
                             $(this).animate({width:200, height:200}, 300);
                         }
                     );
-                })
+
+                    $(".box").click(function(){
+                        $(".box2").animate({width:500, height:500}, 300, function(){
+                            console.log("완료 되었습니다."+$('.box2').width());
+                        });
+
+                        $('.box2').show(300, function(){ //display : none -> block으로 수정
+                            console.log("show완료 되었습니다."+$('.box2').width());
+                        });
+
+                        // toggle -> show <-> hide
+                    });
+                });
             </script>
     </head>
     <body>
         <div class="box"></div>
+        <div class="box2"></div>
     </body>
 </html>
