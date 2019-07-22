@@ -1,0 +1,103 @@
+<html>
+<head>
+    <style>
+
+        /* SASS 의 첫번째 기능 : 변수 선언 */
+
+        /* .div1{
+            background-color: red;
+            color: blue;
+        }
+        .div2{
+            background-color: red;
+            color: blue;
+        } */
+        /* 위와 같이 중복이 일어나는 문제를 아래와 같이 하나의 변수로 여러 중복을 한번에 변경할 수 있다. */
+        /* $val1:red;
+        $val2:blue;
+        .div1{
+            background-color: $val1;
+            color: $val2;
+        }
+        .div2{
+            background-color: $val1;
+            color: $val2;
+        } */
+        /* 단, SASS는 ruby를 설치해야 사용 가능 그리고 각각 컴파일을 해야 한다. 그러나 요즘은 이렇게 안쓰고 
+        SASS 제너레이터 사이트를 사용한다. (ex: sassmeister.com)
+        확장자는 .scss이다.*/
+
+        /* SASS의 두번째 기능 : Nesting 기능 (포함 관계) */
+
+        /* .div1{
+            background-color: blue;
+        }
+        .div1 > .div1-1{
+            background-color: yellow;
+        }
+        .div1 > .div1-2{
+            background-color: green;
+        }
+        .div1 > .div1-1 > .div1-1-1> .div1-1-1-1{
+            background-color: red;
+        } */
+
+        /* 위 코드를 아래와 같이 수정할 수 있다. */
+
+        /* .div1{
+            background-color: blue;
+            .div1-1{
+                background-color: yellow;
+            }
+            .div1-2{
+                background-color: green;
+            }
+            .div1-1 > .div1-1-1 > .div1-1-1-1{
+                background-color: red;
+            }
+
+            .div1::after{
+                color: blue;
+            }
+        } */
+
+        /* 또한 위에서 .div1-1 > .div1-1-1 > .div1-1-1-1 는 아래와 같이 네스팅 할 수 있다. */
+
+        /*.div1{
+            background-color: blue;
+            
+            .div1-1{
+                background-color: yellow;
+*/
+                /*& > .div1-1-1 > .div1-1-1-1{
+                    background-color: red; 위의 긴 내용을 &을 사용해 중괄호 속 중괄호로 넣을 수 있다.
+                }*/
+            /*}
+            .div1-2{
+                background-color: green;
+            }
+
+            &::after{
+                color: blue;
+            }
+        }*/
+
+    </style>
+</head>
+<body>
+    <div class="div1">Div01
+        <div class="div1-1">Div1-1
+                <div class="div1-1-1">Div1-1-1
+                        <div class="div1-1-1-1">Div1-1-1-1</div>
+                </div>
+        </div>
+        <div class="div1-2">Div1-2</div>
+        <div class="div1-3">Div1-3</div>
+    </div>
+    <div class="div2">Div02
+        <div class="div2-1">Div2-1</div>
+        <div class="div2-2">Div2-2</div>
+        <div class="div2-3">Div2-3</div>
+    </div>
+</body>
+</html>
