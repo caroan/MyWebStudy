@@ -82,6 +82,53 @@
             }
         }*/
 
+        /* 위에서 html & 방식으로 해도 된다. */
+
+        /* 또한 SASS 에서는 // 주석이 가능해진다. */
+
+        /* 세번째 기능 : mixin
+        @mixin name{} <- 선언
+        @include name <- 호출 */
+
+        /* .div1{
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .div2{
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            width: 10px;
+            height: 10px;
+        } */
+
+/* 위 동일하게 반복되는 구문을 아래와 같이 선언/사용할 수 있다. */
+
+        /* @mixin txtell{
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        @mixin size($size, $size2){
+            width: $size;
+            height: $size2;
+        }
+
+        .div1{
+            @include txtell;
+        }
+        .div2{
+            @include txtell;
+
+            @include size;
+        } */
+
     </style>
 </head>
 <body>

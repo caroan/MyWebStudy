@@ -61,14 +61,20 @@ IE 10 미만의 버전을 지원해야 할 때. + display 변화를 전환 효�
                         $('.box2').show(300, function(){ //display : none -> block으로 수정
                             console.log("show완료 되었습니다."+$('.box2').width());
                         });
-
+                        $('.imgProp').prop({src:"image1.png"}); //prop : 해당 태그의 속성을 변경시킬 수 있다. (addClass도 대신할 수 있음.)
                         // toggle -> show <-> hide
                     });
+
+                    $('.text').text("일반적인 텍스트");//일반 글자 작성
+                    $('.htmlText').html("<div>table</div>");//html 노드를 작성
                 });
             </script>
     </head>
     <body>
         <div class="box"></div>
         <div class="box2"></div>
+        <img class='imgProp' src="image2.png" alt="">
+        <div class="text"></div>
+        <div class="htmlText"></div>
     </body>
 </html>
