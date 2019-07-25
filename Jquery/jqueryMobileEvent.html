@@ -1,0 +1,27 @@
+<html>
+<head>
+    <!-- touchstart, touchend, touchmove -->
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+    </style>
+    <script>
+        $(function(){
+            // on() : 이벤트 등록 명령어.
+            // on("event", handler)
+            $(document).on("touchstart", function(e){
+                $("body").append("<p>touch start event</p>");
+            });
+            $(document).on("touchend", function(e){
+                $("body").append("<p>touch end event</p>");
+            });
+            $(document).on("touchmove", function(e){
+                $("body").append("<p>touch move event</p>");
+            });
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
