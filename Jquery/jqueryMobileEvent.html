@@ -11,6 +11,7 @@
             // on("event", handler)
             $(document).on("touchstart", function(e){
                 $("body").append("<p>touch start event</p>");
+                console.log(e.originalEvent)
             });
             $(document).on("touchend", function(e){
                 $("body").append("<p>touch end event</p>");
