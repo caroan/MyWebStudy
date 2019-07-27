@@ -14,6 +14,16 @@
     & 그리고 -> if (gte ie 7) & (gte ie 9)
     | 또는 -> if (gte ie 7) | (gte ie 9) -->
 
+    <!-- https://cdnjs.com/libraries/html5shiv
+        https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js
+        <- IE8 이하에서는 이거를 써야 한다. 그래야 시멘틱 태그를 사용할 수 있다.
+    
+        미디어 쿼리는 IE8에서 지원되지 않는다.
+        respond.min.js를 사용하면 되기는 한데 이거 어지간해서는 쓰지마라.
+        그냥 css를 하나 더 만들어서 반응형을 안쓴다고 해놔라.(max-width를 써버려라.)
+        
+    -->
+
     <style>
         .round{
             margin: 100px;
