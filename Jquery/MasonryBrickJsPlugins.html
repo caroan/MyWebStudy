@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin: 20px;
+                padding: 20px;
+                font-family: "Open Sans", sans-serif;
+                font-size: 1rem;
+                background: #f1f1f1;
+                color: #555;
+            }
+            .container{
+                min-width:440px;
+            }
+            .title{
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+            .container{
+                margin-top: 39px;
+            }
+            /* 2) CSS 구축 */
+
+            /* PC 영역 */
+            .gallery .grid-sizer,
+            .gallery .grid-item{
+                width: 33.333%
+            }
+            .gallery .grid-item{
+                float: left;
+                padding: 0 5px 5px 0;
+                box-sizing: border-box;
+            }
+            .gallery .grid-item img{
+                display: block;
+                width: 100%;
+                vertical-align: top;
+            }
+
+            @media only screen and (max-width: 800px){
+                .gallery .grid-sizer,
+                .gallery .grid-item{
+                    width: 50%
+                }
+            }
+            @media only screen and (max-width: 500px){
+                .gallery .grid-sizer,
+                .gallery .grid-item{
+                    width: 100%
+                }
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
+        <script>
+            $(function(){
+                // 3) masonry 플러그인 함수 호출 (itemSeletor, comlumWidth)
+                setTimeout(function(){ // 로딩 버그를 보완 (새로고침 시 그리드가 안 먹힐 때가 있음)
+                    $(".grid1").masonry({
+                        itemSeletor: ".grid-item",
+                        columnWidth: ".grid-sizer"
+                    });
+                }, 150);
+            });
+        </script>
+    </head>
+    <body>
+        <h1 class="title">plugins :: masonry brick</h1>
+        <div class="container">
+            <!--1)HTML 구축-->
+            <div class="gallery">
+                <div class="grid1"><!--ㅡmasonry brick 적용 클래스-->
+                    <div class="grid-sizer"></div><!--크기조정 빈 노드-->
+                    <div class="grid-item"><img src="image1.png" alt=""></div>
+                    <div class="grid-item"><img src="sqaureImage.jpg" alt=""></div>
+                    <div class="grid-item"><img src="shortImage.jpg".jpg" alt=""></div>
+                    <div class="grid-item"><img src="image2.png" alt=""></div>
+                    <div class="grid-item"><img src="sqaureImage.jpg" alt=""></div>
+                    <div class="grid-item"><img src="longImage.jpg" alt=""></div>
+                    <div class="grid-item"><img src="image3.png" alt=""></div>
+                    <div class="grid-item"><img src="shortImage.jpg".jpg" alt=""></div>
+                    <div class="grid-item"><img src="shortImage.jpg" alt=""></div>
+                    <div class="grid-item"><img src="image4.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

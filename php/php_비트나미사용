@@ -1,0 +1,10 @@
+
+집 PC 사용 파일 위치: 
+C:\Bitnami\wampstack-7.1.28-0\apache2\htdocs
+
+
+C:\Bitnami\wampstack-7.1.28-0\php\php.ini 에서 
+display_errors = off로 되어 있는 것을 on으로 수정
+(오프로 되어 있는 이유는 이 에어를 다른 사용자도 같이 보기 때문임)
+opcache.enable=1 ->0 으로 수정
+1 켜져 있음 : php가 켜져 있으면 우리가 수정시 바로 반영되지 않음.
