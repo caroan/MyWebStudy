@@ -9,7 +9,7 @@ jQuery 수업 완료 - easing의 이름이 다른 것으로 수정됨.
 Web2-PHP 완료
 
 --- 학습 중 ---
-php 39. include와 namespace namespace 진행할 것.
+php 45. PHP파일 읽고 쓰기.
 CSS 수업 - CSS 뛰어넘기, preprocesser 다시 따라해보기. <- 이거 stylus 찾을 수가 없어서 지금 학습 안해도 될거 같다.
 생활 코딩 - Jquery 12회
 조건부 주석이 뭔지 확인해볼 것.
