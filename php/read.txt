@@ -1,0 +1,2 @@
+read txt file in read.txt
+read ok.

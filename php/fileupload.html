@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form enctype="multipart/form-data" action="fileCatch.php" method="POST">
+            <!-- post 타입과 multipart/form-data로 지정해야 한다. -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000"><!--3000이상의 사이즈 금지. 단, 우회가 가능하므로 따로 php에 3000을 못넘도록 수정할 수 있다.-->
+            <input type="file" name="userfile">
+            <!-- <input type="file" name="userfile2"> -->
+            <input type="submit" value="upload">
+        </form>
+    </body>
+</html>
