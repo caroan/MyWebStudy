@@ -1,6 +1,6 @@
 --- 학습 완료 ---
 Web1 - html&internet
-Javascript 입문 수업 & Web2 Javascript & Javascript 객체 지향 프로그래밍
+Javascript 입ㅇ문 수업 & Web2 Javascript & Javascript 객체 지향 프로그래밍
 AWS - Educate
 지옥에서 온 Git
 Web2 CSS & CSS 수업
@@ -9,9 +9,14 @@ jQuery 수업 완료 - easing의 이름이 다른 것으로 수정됨.
 Web2-PHP 완료
 PHP-OOP 완료
 DATABASE1 완료
+DATABASE2-mysql 완료
+sql join 완료
+관계형 데이터 모델링 - 개념적 데이터 모델링까지만 완료. 이후 논리/물리적 모델링 관련 내용을 할 것.
 
 --- 학습 중 ---
-php-oop 18회 할 차례
+한빛 미디어 - mysql 학습 중. - 20화 시작 할 것. 8화 delimiter관련내용 알아 볼것. - delimiter 가 안되어서 벤치에서 다시 해보도록 하자.
+mysql 수업 : mysql workbench 관련 내용 넘어감.
+sql join 테이블 저장해놓을것
 PHP수업 : pdo, mysql 확장, 리눅스/윈도우 mysql 사용, 로그(쁘띠 사용&xdebug), OOP-컴포저, PHP웹애플리케이션 관련 내용은 넘어감.
 CSS 수업 - CSS 뛰어넘기, preprocesser 다시 따라해보기. <- 이거 stylus 찾을 수가 없어서 지금 학습 안해도 될거 같다.
 생활 코딩 - Jquery 12회
