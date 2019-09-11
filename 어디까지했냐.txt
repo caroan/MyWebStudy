@@ -12,9 +12,12 @@ DATABASE1 완료
 DATABASE2-mysql 완료
 sql join 완료
 관계형 데이터 모델링 - 개념적 데이터 모델링까지만 완료. 이후 논리/물리적 모델링 관련 내용을 할 것.
+한빛 미디어 mysql 학습 완료
 
 --- 학습 중 ---
-한빛 미디어 - mysql 학습 중. - 20화 시작 할 것. 8화 delimiter관련내용 알아 볼것. - delimiter 가 안되어서 벤치에서 다시 해보도록 하자.
+생활 코딩 WEB3 - PHP & MySQL 학습
+
+--- 참고 사항 ---
 mysql 수업 : mysql workbench 관련 내용 넘어감.
 sql join 테이블 저장해놓을것
 PHP수업 : pdo, mysql 확장, 리눅스/윈도우 mysql 사용, 로그(쁘띠 사용&xdebug), OOP-컴포저, PHP웹애플리케이션 관련 내용은 넘어감.
