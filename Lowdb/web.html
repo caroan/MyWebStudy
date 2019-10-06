@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <!-- main.js 의 웹 버전(로컬스토리지에 저장) -->
+    <head>
+            <script src="https://unpkg.com/lodash@4/lodash.min.js"></script>
+            <script src="https://unpkg.com/lowdb@0.17/dist/low.min.js"></script>
+            <script src="https://unpkg.com/lowdb@0.17/dist/LocalStorage.min.js"></script>
+            <script>
+                var myAdapter = new LocalStorage('db') //로컬스토리지의 db라는 곳에데이터를 저장하겠다.
+                var myDB = low(myAdapter) //위 내용을 low디비로 주고 그것을 myDB로 제어하겠다는 뜻.
+
+                //디폴트
+                myDB.defaults({ topic: [], author: [] }).write() //저장할 정보가 없으면 자동으로 만들어주는 디폴트 정보
+
+                //데이터 INSERT & CREATE
+                // myDB.get('author').push({id:1, name:'an', profile:'developer'}).write();
+                // myDB.get('author').push({id:2, name:'myung', profile:'Artist'}).write();
+                // myDB.get('topic').push({id:1, title:'lowdb', description:'LowDB is ...', author:'1'}).write();
+                // myDB.get('topic').push({id:1, title:'mysql', description:'mysql is ...', author:'1'}).write();
+                // myDB.get('topic').push({id:1, title:'Oracle', description:'Oracle is ...', author:'2'}).write();
+
+                //SELECT
+                // console.log(myDB.get('topic').value());
+                // console.log(myDB.get('topic').find({title:'mysql', author:'1'}).value());
+
+                //UPDATE
+                // myDB.get('topic').find({title: 'Oracle'}).assign({id: 2}).write();
+                // myDB.get('topic').find({title: 'mysql'}).assign({id: 3}).write();
+
+                //DELETE
+                //myDB.get('topic').remove({title: 'Oracle'}).write();
+            </script>
+    </head>
+</html>
