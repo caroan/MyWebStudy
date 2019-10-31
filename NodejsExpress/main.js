@@ -1,143 +1,95 @@
-var http = require('http');
+const express = require('express');
+const app = express();
 var fs = require('fs');
-var url = require('url');
-var qs = require('querystring');
 var template = require('./lib/template.js');
 var path = require('path');
 var sanitizeHtml = require('sanitize-html');
+var indexRouter = require('./routes/index');
+var topicRouter = require('./routes/topic');
 
-var app = http.createServer(function(request,response){
-    var _url = request.url;
-    var queryData = url.parse(_url, true).query;
-    var pathname = url.parse(_url, true).pathname;
-    if(pathname === '/'){
-      if(queryData.id === undefined){
-        fs.readdir('./data', function(error, filelist){
-          var title = 'Welcome';
-          var description = 'Hello, Node.js';
-          var list = template.list(filelist);
-          var html = template.HTML(title, list,
-            `<h2>${title}</h2>${description}`,
-            `<a href="/create">create</a>`
-          );
-          response.writeHead(200);
-          response.end(html);
-        });
-      } else {
-        fs.readdir('./data', function(error, filelist){
-          var filteredId = path.parse(queryData.id).base;
-          fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
-            var title = queryData.id;
-            var sanitizedTitle = sanitizeHtml(title);
-            var sanitizedDescription = sanitizeHtml(description, {
-              allowedTags:['h1']
-            });
-            var list = template.list(filelist);
-            var html = template.HTML(sanitizedTitle, list,
-              `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
-              ` <a href="/create">create</a>
-                <a href="/update?id=${sanitizedTitle}">update</a>
-                <form action="delete_process" method="post">
-                  <input type="hidden" name="id" value="${sanitizedTitle}">
-                  <input type="submit" value="delete">
-                </form>`
-            );
-            response.writeHead(200);
-            response.end(html);
-          });
-        });
+
+app.use(express.static('public')); //퍼블릭 폴더에서 스태틱 파일을 찾겠다는 뜻.
+
+//Express third-party middleware 'body-parser' 불러오기
+//var bodyParser = require('body-parser');
+//var compression = require('compression');
+
+//app.use(bodyParser.urlencoded({extended: false})); //미들웨어가 실행된다.
+//json을 요청하는 경우 app.use(bodyParser.json()); 을 사용한다.
+
+
+//app.use(compression());
+
+
+//내가 만드는 미들웨어.
+// app.use(function(request, response, next){ //이 다음에 호출될 미들웨어가 next로 들어온다.
+//   fs.readdir('./data', function(error, filelist){
+//     request.list = filelist; // 이후 들어올 모든 request에는 파일 리스트가 들어가게 된다.
+//     next(); //<- 그다음에 호출되어야 할 미들웨어를 실행한다.
+//   });
+// });
+//위처럼 하면 모든 리퀘스트에 해당 값이 들어가기 때문에 안써도 되는 곳에 써야 하는 비효율일 발생한다. 이를 방지하기 위해 아래롸 같이 사용한다.
+app.get('*', function(request, response, next){
+  fs.readdir('./data', function(error, filelist){
+    request.list = filelist;
+    next();
+  });
+});//'*'는 모든 요청을 의미한다. get 이기 때문에 겟 방식에만 사용하게 된다.
+
+app.use('/', indexRouter);
+app.use('/topic', topicRouter); // /topic 으로 시작하는 애들에게 topicRouter를 적용하겠다는 뜻.
+
+
+
+//라우팅 해주는 코드
+//app.get('/', (req, res) => res.send('hello world'));
+//위 내용은 아래와 같다.
+// app.get('/', function(req, res){
+//   return res.send('hello world');
+// });
+
+app.get('/page/:pageID', function(request, response, next){
+  //클린 URL 방식. return response.send(request.params); //?id=xx 로 값을 줘도 되는데 요즘 시멘틱웹이라고 해서 저렇게 주는 것은 안좋게 봐서 이렇게 주도록 하는 것이 유행이다.
+  fs.readdir('./data', function(error, filelist){  
+    var filteredId = path.parse(request.params.pageID).base;
+    fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
+      if(err){
+        next(err);
+        return;
       }
-    } else if(pathname === '/create'){
-      fs.readdir('./data', function(error, filelist){
-        var title = 'WEB - create';
-        var list = template.list(filelist);
-        var html = template.HTML(title, list, `
-          <form action="/create_process" method="post">
-            <p><input type="text" name="title" placeholder="title"></p>
-            <p>
-              <textarea name="description" placeholder="description"></textarea>
-            </p>
-            <p>
-              <input type="submit">
-            </p>
-          </form>
-        `, '');
-        response.writeHead(200);
-        response.end(html);
+      var title = request.params.pageID;
+      var sanitizedTitle = sanitizeHtml(title);
+      var sanitizedDescription = sanitizeHtml(description, {
+        allowedTags:['h1']
       });
-    } else if(pathname === '/create_process'){
-      var body = '';
-      request.on('data', function(data){
-          body = body + data;
-      });
-      request.on('end', function(){
-          var post = qs.parse(body);
-          var title = post.title;
-          var description = post.description;
-          fs.writeFile(`data/${title}`, description, 'utf8', function(err){
-            response.writeHead(302, {Location: `/?id=${title}`});
-            response.end();
-          })
-      });
-    } else if(pathname === '/update'){
-      fs.readdir('./data', function(error, filelist){
-        var filteredId = path.parse(queryData.id).base;
-        fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
-          var title = queryData.id;
-          var list = template.list(filelist);
-          var html = template.HTML(title, list,
-            `
-            <form action="/update_process" method="post">
-              <input type="hidden" name="id" value="${title}">
-              <p><input type="text" name="title" placeholder="title" value="${title}"></p>
-              <p>
-                <textarea name="description" placeholder="description">${description}</textarea>
-              </p>
-              <p>
-                <input type="submit">
-              </p>
-            </form>
-            `,
-            `<a href="/create">create</a> <a href="/update?id=${title}">update</a>`
-          );
-          response.writeHead(200);
-          response.end(html);
-        });
-      });
-    } else if(pathname === '/update_process'){
-      var body = '';
-      request.on('data', function(data){
-          body = body + data;
-      });
-      request.on('end', function(){
-          var post = qs.parse(body);
-          var id = post.id;
-          var title = post.title;
-          var description = post.description;
-          fs.rename(`data/${id}`, `data/${title}`, function(error){
-            fs.writeFile(`data/${title}`, description, 'utf8', function(err){
-              response.writeHead(302, {Location: `/?id=${title}`});
-              response.end();
-            })
-          });
-      });
-    } else if(pathname === '/delete_process'){
-      var body = '';
-      request.on('data', function(data){
-          body = body + data;
-      });
-      request.on('end', function(){
-          var post = qs.parse(body);
-          var id = post.id;
-          var filteredId = path.parse(id).base;
-          fs.unlink(`data/${filteredId}`, function(error){
-            response.writeHead(302, {Location: `/`});
-            response.end();
-          })
-      });
-    } else {
-      response.writeHead(404);
-      response.end('Not found');
-    }
+      var list = template.list(filelist);
+      var html = template.HTML(sanitizedTitle, list,
+        `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
+        ` <a href="/topic/create">create</a>
+          <a href="/topic/update/${sanitizedTitle}">update</a>
+          <form action="/topic/delete_process" method="post">
+            <input type="hidden" name="id" value="${sanitizedTitle}">
+            <input type="submit" value="delete">
+          </form>`
+      );
+      response.send(html);
+    });
+  });
 });
-app.listen(3000);
+
+//에러 처리
+app.use(function(request, response, next){
+  response.status(404).send('Sorry. Can\'t Not Find');
+});
+
+//next를 통해 전달 받은 err를 받음. 에러 핸들을 위한 미들 웨어 형태.
+app.use(function(err, req, res, next){
+  console.log(err.stack);
+  res.status(500).send('something broke!!');
+});
+
+//
+app.listen(3000, () => console.log('example app listening on port 3000!'));
+// app.listen(3000, function(){
+//   console.log('example app listening on port 3000!');
+// });
