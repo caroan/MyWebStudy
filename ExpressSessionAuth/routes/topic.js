@@ -92,6 +92,7 @@ var auth =require('../lib/auth');
     }
     var body = '';
         request.on('data', function(data){
+          console.log('I am in');
             body = body + data;
         });
         request.on('end', function(){

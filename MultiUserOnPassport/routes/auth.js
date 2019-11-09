@@ -5,6 +5,12 @@ var template = require('../lib/template.js');
 var path = require('path');
 var qs = require('querystring');
 
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const adapter = new FileSync('db.json');
+const db = low(adapter);
+db.defaults({users:[]}).write();
+
 module.exports = function(passport){
   router.get('/login', function(request, response){
     var fmsg = request.flash();
@@ -29,6 +35,58 @@ module.exports = function(passport){
   
   router.post('/login_process', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/auth/login', failureFlash: true, successFlash: true}));
   
+  router.get('/register', function(request, response){
+    var fmsg = request.flash();
+    var feedback = '';
+    if(fmsg.error){
+      feedback = fmsg.error[0];
+    }
+    var title = 'Web - login';
+    var list = template.list(request.list);
+    //패스포트를 이용하기 위해서는 패스포트에서 요구하는 형식대로 유저 이름은 username, 비밀번호는 password로 아이디를 써야 한다.
+    //만약 위 형식을 따르기 싫다면 파라미터로 해당 이름을 바꾸도록 한다.
+    var html = template.HTML(title, list, `
+      <div style="color:red;">${feedback}</div>
+      <form action="/auth/register_process" method="post">
+        <p><input type="text" name="email" placeholder="email"></p>
+        <p><input type="password" name="password" placeholder="password"></p>
+        <p><input type="password" name="password2" placeholder="password"></p>
+        <p><input type="text" name="displayName" placeholder="display name"></p>
+        <p><input type="submit" value="register"></p>
+      </form>
+    `, '');
+    response.send(html);
+  });
+
+  router.post('/register_process', function(request, response){
+    var body = '';
+    console.log(request);
+    request.on('data', function(data){
+      body = body + data;
+    });
+    request.on('data', function(data){
+      console.log('data : ');
+      body += data;
+      console.log('data : '.body);
+    });
+    console.log(body);
+    request.on('end', function(){
+      var post = qs.parse(body);
+      var email = post.email;
+      var pwd = post.password;
+      var pwd2 = post.password2;
+      var displayName = post.displayName;
+      console.log(post);
+      db.get('users').push({
+        email: email,
+        password: pwd,
+        desplayName: displayName
+      }).write();
+      response.redirect('/');
+    });
+
+  });
+
   router.get('/logout', function(request, response){
     request.logout();
     // request.session.destroy(function(err){ //세션을 이렇게 지워주는 것이 좋다. 그러나 이렇게 하면 에러 메시지가 뜨기 때문에 아래처럼 해줘도 좋다.
