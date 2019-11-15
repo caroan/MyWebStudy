@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": "x9Uhrupq",
+      "email": "kain",
+      "password": "3232",
+      "nickname": "Ross"
+    },
+    {
+      "id": "GUAHK6RX",
+      "email": "wrong",
+      "password": "1",
+      "nickname": "not"
+    },
+    {
+      "id": "WoF2xX_J",
+      "email": "test",
+      "password": "1020",
+      "nickname": "testID"
+    },
+    {
+      "id": "0tdlCX4f",
+      "email": "test2",
+      "password": "2020",
+      "nickname": "testUser"
+    },
+    {
+      "id": "Ww8M49f1",
+      "email": "SecretPassword",
+      "password": "$2b$10$vlUTN35j4.nm6juSniLjZu.biUooQIRsPH3XTOooKln5yDwN0xLv2",
+      "nickname": "보안완료"
+    }
+  ],
+  "topics": [
+    {
+      "id": "OAdMKBcF",
+      "title": "KainWrite",
+      "desc": "Kain is Write here",
+      "user_id": "x9Uhrupq"
+    },
+    {
+      "id": "WSo7wHAs",
+      "title": "wrongs",
+      "desc": "wrong is not update",
+      "user_id": "GUAHK6RX"
+    },
+    {
+      "id": "n8OVYToR",
+      "title": "wrong_post2",
+      "desc": "post 2 is here",
+      "user_id": "GUAHK6RX"
+    },
+    {
+      "id": "kYZkxbn6",
+      "title": "wrong",
+      "desc": "1",
+      "user_id": "GUAHK6RX"
+    },
+    {
+      "id": "BfPapjjW",
+      "title": "kain",
+      "desc": "3232",
+      "user_id": "x9Uhrupq"
+    },
+    {
+      "id": "l8hlH2sA",
+      "title": "test",
+      "desc": "test version",
+      "user_id": "x9Uhrupq"
+    }
+  ]
+}
