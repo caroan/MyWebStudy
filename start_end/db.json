@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": "x9Uhrupq",
+      "email": "kain",
+      "password": "3232",
+      "nickname": "Ross"
+    },
+    {
+      "id": "GUAHK6RX",
+      "email": "wrong",
+      "password": "1",
+      "nickname": "not"
+    },
+    {
+      "id": "WoF2xX_J",
+      "email": "test",
+      "password": "1020",
+      "nickname": "testID"
+    },
+    {
+      "id": "0tdlCX4f",
+      "email": "test2",
+      "password": "2020",
+      "nickname": "testUser"
+    }
+  ],
+  "topics": [
+    {
+      "id": "OAdMKBcF",
+      "title": "KainWrite",
+      "desc": "Kain is Write here",
+      "user_id": "x9Uhrupq"
+    },
+    {
+      "id": "WSo7wHAs",
+      "title": "Wrong",
+      "desc": "Wrong is first.",
+      "user_id": "GUAHK6RX"
+    }
+  ]
+}

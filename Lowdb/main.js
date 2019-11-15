@@ -31,5 +31,8 @@ myDB.defaults({ topic: [], author: [] }).write() //저장할 정보가 없으면
 
 const shortid = require('shortid'); // shortid 는 랜덤한 값을 만들어주고 그 랜덤 값은 왠만해서는 중복된 값을 만들어주지 않는다.
 const postID = myDB.get('author').push({id: shortid.generate(), name:'sun', profile: 'Designer'}).write().id;
-const post = myDB.get('author').find({id: postID}).value();
+var k = "YWJaoV4M";
+const post = myDB.get('author').find({id: k}).value();
+
+console.log(post);
 
