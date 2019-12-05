@@ -25,9 +25,11 @@ sql join 완료
 생활코딩 Express Session & Auth 학습 완료.
 생활코딩 Passport.js 학습 완료.
 생활코딩 Multi User on Passport 학습 완료.
+생활코딩 구글 로그인 학습 완료
+생활코딩 react학습 완료
 
 --- 학습 중 ---
-생활코딩 Login with Google On Passport 1화 학습 중
+
 
 --- 참고 사항 ---
 mysql 수업 : mysql workbench 관련 내용 넘어감.
