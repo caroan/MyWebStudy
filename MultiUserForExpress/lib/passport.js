@@ -25,6 +25,7 @@ module.exports = function(app){
     });
     passport.deserializeUser(function(id, done){ //페이지를 열 때마다 계속 호출된다.
         var user = db.get('users').find({id:id}).value();
+        console.log('Deserialize');
         //console.log('deserializeUser', id, user);
         done(null, user); //사용자의 실제 데이터가 저장된 곳(ex: DB)에서 데이터를 가져와 식별자랑 비교를 하며 어떤 값의 사용자 데이터를 가져와야 하는지 알게 된다.
         //위의 serializeUser에서 받은 식별자 값을 id에 넣고 done()에 넣은 authData 에서 식별자에 따른 정보를 확인해서 찾는다.

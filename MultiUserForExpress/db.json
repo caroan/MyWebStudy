@@ -29,6 +29,12 @@
       "email": "SecretPassword",
       "password": "$2b$10$vlUTN35j4.nm6juSniLjZu.biUooQIRsPH3XTOooKln5yDwN0xLv2",
       "nickname": "보안완료"
+    },
+    {
+      "id": "fR1FXIgG",
+      "email": "New",
+      "password": "$2b$10$DYYPvb8P4DpLvbV.vZr5Cu1RMkqrU8mVJe/wfLlap91XupvRg6/HW",
+      "nickname": "1111"
     }
   ],
   "topics": [

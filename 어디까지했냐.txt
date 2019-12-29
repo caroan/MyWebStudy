@@ -30,7 +30,7 @@ sql join 완료
 생활코딩 react학습 완료
 
 --- 학습 중 ---
-
+패밀리 서울 사이트 만들어 AWS에 올려보기
 
 --- 참고 사항 ---
 mysql 수업 : mysql workbench 관련 내용 넘어감.
